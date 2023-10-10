@@ -34,7 +34,7 @@ function convertStringDaysToEnumDays(inputDays: string): Day[] {
     });
 }
 
-function purifyCourseRaw(rawCourse: RawAPIResponseCourse): Course {
+function purifyRawCourse(rawCourse: RawAPIResponseCourse): Course {
     const instructors: Instructor[] = rawCourse.instructor.map(
         (instructor) => ({
             profileUrl: instructor.profileUrl,
@@ -122,5 +122,5 @@ export default async function courseOutline(
         )
     ).data;
 
-    return purifyCourseRaw(rawCourse);
+    return purifyRawCourse(rawCourse);
 }
