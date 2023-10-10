@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": "./test",
+        "rootDir": "./test",
+        "paths": {
+            "@utils": ["../src/utils"],
+            "@utils/*": ["../src/utils/*"],
+            "@api-types": ["../src/api-types"]
+        }
+    },
+    "include": ["./test"]
+}

@@ -1,0 +1,11 @@
+{
+    "courseOutlines": {
+        "baseUrl": "https://www.sfu.ca/bin/wcm/course-outlines"
+    },
+    "academicCalendar": {
+        "baseUrl": "https://www.sfu.ca/bin/wcm/academic-calendar",
+        "areasOfStudy": "areas-of-study",
+        "courses": "courses",
+        "programs": "programs"
+    }
+}
