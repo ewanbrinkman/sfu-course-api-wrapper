@@ -1,4 +1,4 @@
-import { requestSFUCourseOutlinesAPI } from '@utils';
+import { requestSFUCourseOutlinesApi } from '@utils';
 import type {
     CourseOutlinesYear,
     CourseOutlinesTerm,
@@ -113,7 +113,7 @@ export default async function courseOutline(
     term: CourseOutlinesTerm = 'current',
 ): Promise<Course> {
     const rawCourse: RawAPIResponseCourse = (
-        await requestSFUCourseOutlinesAPI(
+        await requestSFUCourseOutlinesApi(
             year,
             term,
             department,

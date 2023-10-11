@@ -2,5 +2,9 @@ type CourseOutlinesCurrent = 'current';
 
 export type CourseOutlinesYear = number | CourseOutlinesCurrent;
 
-type Term = 'fall' | 'spring' | 'summer';
+enum Term {
+    Fall = 'fall',
+    Spring = 'spring',
+    Summer = 'summer',
+}
 export type CourseOutlinesTerm = Term | CourseOutlinesCurrent;

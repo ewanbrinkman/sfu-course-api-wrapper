@@ -1,69 +1,71 @@
 import urls from '@utils/urls.json';
-import type {
-    CourseOutlinesYear,
-    CourseOutlinesTerm,
-} from '@api-types';
+import type { CourseOutlinesYear, CourseOutlinesTerm } from '@api-types';
 import axios, { AxiosResponse } from 'axios';
 
-function generateURLForSFUAPI(baseUrl: string, ...parameters: (number | string)[]) {
+function generateURLForSFUApi(
+    baseUrl: string,
+    ...parameters: (number | string)[]
+) {
     return `${baseUrl}?${parameters.join('/')}`;
 }
 
-async function requestSFUAPI(
-    baseUrl: string,
+type requestSFUApiFunction = (
     ...parameters: (number | string)[]
-): Promise<AxiosResponse> {
-    try {
-        return await axios.get(
-            generateURLForSFUAPI(baseUrl, ...parameters),
-        );
-    } catch (error) {
-        throw error;
-    }
+) => Promise<AxiosResponse>;
+
+function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
+    return async (
+        ...parameters: (number | string)[]
+    ): Promise<AxiosResponse> => {
+        try {
+            return await axios.get(
+                generateURLForSFUApi(baseUrl, ...parameters),
+            );
+        } catch (error) {
+            throw error;
+        }
+    };
 }
 
-export async function requestSFUCourseOutlinesAPI(
-    ...parameters: (number | string)[]
-): Promise<AxiosResponse> {
-    return await requestSFUAPI(urls.courseOutlines.baseUrl, ...parameters);
-}
+export const requestSFUCourseOutlinesApi = generateRequestSFUApiFunction(
+    urls.courseOutlines.baseUrl,
+);
+export const requestSFUAcademicCalendarApi = generateRequestSFUApiFunction(
+    urls.academicCalendar.baseUrl,
+);
 
-export async function requestSFUAcademicCalendarAPI(
+type requestSFUAcademicCalendarApiSectionFunction = (
+    year: CourseOutlinesYear,
+    term: CourseOutlinesTerm,
     ...parameters: (number | string)[]
-): Promise<AxiosResponse> {
-    return await requestSFUAPI(urls.academicCalendar.baseUrl, ...parameters);
-}
+) => Promise<AxiosResponse>;
 
-async function requestSFUAcademicCalendarAPISection(
-    year: CourseOutlinesYear = 'current',
-    term: CourseOutlinesTerm = 'current',
+function generateRequestSFUAcademicCalendarApiSectionFunction(
     section: string,
-    ...parameters: (number | string)[]
-): Promise<AxiosResponse> {
-    return await requestSFUAcademicCalendarAPI(year, term, section, ...parameters);
+): requestSFUAcademicCalendarApiSectionFunction {
+    return async (
+        year: CourseOutlinesYear = 'current',
+        term: CourseOutlinesTerm = 'current',
+        ...parameters: (number | string)[]
+    ): Promise<AxiosResponse> => {
+        return await requestSFUAcademicCalendarApi(
+            year,
+            term,
+            section,
+            ...parameters,
+        );
+    };
 }
 
-export async function requestSFUAcademicCalendarAPIAreasOfStudy(
-    year: CourseOutlinesYear = 'current',
-    term: CourseOutlinesTerm = 'current',
-    ...parameters: (number | string)[]
-): Promise<AxiosResponse> {
-    return await requestSFUAcademicCalendarAPISection(year, term, urls.academicCalendar.areasOfStudy, ...parameters);
-}
-
-export async function requestSFUAcademicCalendarAPICourses(
-    year: CourseOutlinesYear = 'current',
-    term: CourseOutlinesTerm = 'current',
-    ...parameters: (number | string)[]
-): Promise<AxiosResponse> {
-    return await requestSFUAcademicCalendarAPISection(year, term, urls.academicCalendar.courses, ...parameters);
-}
-
-export async function requestSFUAcademicCalendarAPIPrograms(
-    year: CourseOutlinesYear = 'current',
-    term: CourseOutlinesTerm = 'current',
-    ...parameters: (number | string)[]
-): Promise<AxiosResponse> {
-    return await requestSFUAcademicCalendarAPISection(year, term, urls.academicCalendar.programs, ...parameters);
-}
-
+export const requestSFUAcademicCalendarAPIAreasOfStudy =
+    generateRequestSFUAcademicCalendarApiSectionFunction(
+        urls.academicCalendar.areasOfStudy,
+    );
+export const requestSFUAcademicCalendarAPICourses =
+    generateRequestSFUAcademicCalendarApiSectionFunction(
+        urls.academicCalendar.courses,
+    );
+export const requestSFUAcademicCalendarAPIPrograms =
+    generateRequestSFUAcademicCalendarApiSectionFunction(
+        urls.academicCalendar.programs,
+    );
