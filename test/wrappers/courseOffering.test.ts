@@ -1,8 +1,9 @@
 import courseOffering from '../../src/wrappers/courseOffering';
+import { CourseOffering } from '../../src/api';
 
 describe('courseOffering', () => {
     test('request', async () => {
-        const courseOutlineData = await courseOffering(
+        const courseOfferingData: CourseOffering = await courseOffering(
             'cmpt',
             120,
             'd100',

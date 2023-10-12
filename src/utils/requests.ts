@@ -57,15 +57,15 @@ function generateRequestSFUAcademicCalendarApiSectionFunction(
     };
 }
 
-export const requestSFUAcademicCalendarAPIAreasOfStudy =
+export const requestSFUAcademicCalendarApiAreasOfStudy =
     generateRequestSFUAcademicCalendarApiSectionFunction(
         urls.academicCalendar.areasOfStudy,
     );
-export const requestSFUAcademicCalendarAPICourses =
+export const requestSFUAcademicCalendarApiCourses =
     generateRequestSFUAcademicCalendarApiSectionFunction(
         urls.academicCalendar.courses,
     );
-export const requestSFUAcademicCalendarAPIPrograms =
+export const requestSFUAcademicCalendarApiPrograms =
     generateRequestSFUAcademicCalendarApiSectionFunction(
         urls.academicCalendar.programs,
     );

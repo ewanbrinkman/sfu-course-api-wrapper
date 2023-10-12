@@ -18,7 +18,7 @@ export enum InstructorRole {
     SecondaryInstructor = 'SI',
 }
 
-export interface RawAPIResponseInstructor {
+export interface RawApiInstructor {
     profileUrl: string;
     commonName?: string;
     firstName: string;
@@ -31,7 +31,7 @@ export interface RawAPIResponseInstructor {
     email: string;
 }
 
-export interface Instructor {
+export interface ProcessedApiInstructor {
     profileUrl: string;
     commonName?: string;
     firstName: string;
@@ -67,7 +67,7 @@ export enum SectionCode {
     Seminar = 'SEM',
 }
 
-export interface RawAPIResponseSchedulePart {
+export interface RawApiSchedulePart {
     roomNumber: number;
     endDate: string;
     campus: Campus;
@@ -79,9 +79,9 @@ export interface RawAPIResponseSchedulePart {
     endTime: string;
     startDate: string;
 }
-export type RawAPIResponseSchedule = RawAPIResponseSchedulePart[];
+export type RawApiSchedule = RawApiSchedulePart[];
 
-export interface SchedulePart {
+export interface ProcessedApiSchedulePart {
     roomNumber: number;
     endDate: string;
     campus: Campus;
@@ -93,9 +93,9 @@ export interface SchedulePart {
     endTime: string;
     startDate: string;
 }
-export type Schedule = SchedulePart[];
+export type ProcessedApiSchedule = ProcessedApiSchedulePart[];
 
-export interface CourseGradingScheme {
+export interface GradingScheme {
     description: string;
     weight: number;
 }
@@ -104,7 +104,7 @@ export interface Textbook {
     details: string;
 }
 
-export interface Course {
+export interface ProcessedApiCourseOffering {
     title: string;
     name: string;
     department: string;
@@ -121,12 +121,12 @@ export interface Course {
     requirements: string;
     educationalGoals: string;
     specialTopic: string;
-    instructors: Instructor[];
+    instructors: ProcessedApiInstructor[];
     deliveryMethod: DeliveryMethod;
     term: string;
-    schedule: Schedule;
+    schedule: ProcessedApiSchedule;
     type: Enrollment;
-    gradingScheme?: CourseGradingScheme;
+    gradingScheme?: GradingScheme;
     internal: {
         outlinePath: string;
         number: number;
@@ -145,7 +145,7 @@ export interface Course {
     };
 }
 
-export interface RawAPIResponseCourse {
+export interface RawApiCourseOffering {
     info: {
         educationalGoals: string;
         notes: string;
@@ -175,9 +175,9 @@ export interface RawAPIResponseCourse {
         name: string;
         designation: string;
     };
-    instructor: RawAPIResponseInstructor[];
-    courseSchedule: RawAPIResponseSchedule;
-    grades?: CourseGradingScheme;
+    instructor: RawApiInstructor[];
+    courseSchedule: RawApiSchedule;
+    grades?: GradingScheme;
     requiredText?: Textbook[];
     recommendedText?: Textbook[];
 }
