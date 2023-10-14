@@ -4,9 +4,13 @@ An asynchronous TypeScript wrapper for the SFU API.
 
 ## Usage
 
-```typescript
-import sfuapi from 'sfuapi';
+### Example
 
-// 'await' expressions must be allowed wherever the API wrapper functions are called.
-const courseOfferingData = await sfuapi.courseOffering('math', 151, 'd100');
+```typescript
+import sfuapi, { CourseOffering } from 'sfuapi';
+
+(async () => {
+    const courseOfferingData: CourseOffering = await sfuapi.courseOffering('cmpt', 120, 'd100');
+    console.log(courseOfferingData);
+})();
 ```

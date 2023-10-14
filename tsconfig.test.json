@@ -6,7 +6,8 @@
         "paths": {
             "@utils": ["../src/utils"],
             "@utils/*": ["../src/utils/*"],
-            "@api-types": ["../src/api-types"]
+            "@api-types": ["../src/api-types"],
+            "@api": ["../src/api"]
         }
     },
     "include": ["./test"]

@@ -1,2 +1,5 @@
 export * from './requests';
-export * from './courseOffering';
+export * from './courseOfferingInfo';
+export * from './courseOfferings';
+export * from './instructors';
+export * from './scheduleParts';
