@@ -1,18 +1,19 @@
 import wrappers from './wrappers';
 
-// Don't use `export * from './types'`, since don't want to export raw API data
-// types.
-export {
+// Don't use `export * from './types'`, since don't want to export raw and
+// processed API data types.
+export type {
     DeliveryMethod,
     DegreeLevel,
-    Instructor,
+    Enrollment,
+    InstructorRole,
     Day,
     Campus,
     SectionCode,
-    SchedulePart,
-    Schedule,
+    GradingScheme,
     Textbook,
-    Course,
 } from './api-types';
+
+export * from './api';
 
 export default wrappers;

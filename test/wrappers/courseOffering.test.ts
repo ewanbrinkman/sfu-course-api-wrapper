@@ -1,5 +1,5 @@
 import courseOffering from '../../src/wrappers/courseOffering';
-import { CourseOffering } from '../../src/api';
+import CourseOffering from '../../src/api/CourseOffering';
 
 describe('courseOffering', () => {
     test('request', async () => {
@@ -10,5 +10,7 @@ describe('courseOffering', () => {
             2021,
             'fall',
         );
+
+        console.log(courseOfferingData);
     });
 });
