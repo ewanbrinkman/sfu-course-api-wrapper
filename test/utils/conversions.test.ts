@@ -1,5 +1,5 @@
 import { convertStringDaysToEnumDays } from '../../src/utils/conversions';
-import { Day } from '../../src/api-types/courseOfferingInfo';
+import { Day } from '../../src/api-types/scheduleParts';
 
 describe('conversions', () => {
     describe('convertStringDaysToEnumDays', () => {

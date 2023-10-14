@@ -6,6 +6,7 @@ import type {
     Enrollment,
     GradingScheme,
     Textbook,
+    ProcessedApiCourseOfferingNotes,
 } from '@api-types';
 import { Instructor, SchedulePart } from '@api';
 
@@ -13,7 +14,7 @@ export default class CourseOffering implements ProcessedApiCourseOffering {
     title: string;
     name: string;
     department: string;
-    number: number;
+    number: string;
     section: string;
     units: number;
     degreeLevel: DegreeLevel;
@@ -36,14 +37,7 @@ export default class CourseOffering implements ProcessedApiCourseOffering {
         outlinePath: string;
         number: number;
     };
-    notes: {
-        general: string;
-        grading: string;
-        registrar: string;
-        requiredReading: string;
-        departmentalUndergraduateNotes: string;
-        short?: string;
-    };
+    notes: ProcessedApiCourseOfferingNotes;
     text: {
         required?: Textbook[];
         recommended?: Textbook[];
