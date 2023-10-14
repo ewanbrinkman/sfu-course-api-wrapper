@@ -1,11 +1,13 @@
 import course from '../../src/wrappers/course';
 import Course from '../../src/api/Course';
 
-describe('courseOffering', () => {
-    test('request cmpt 120 d100 2021 fall', async () => {
+describe('course', () => {
+    test('request cmpt 125 fall 2022', async () => {
         const courseData: Course = await course(
             'cmpt',
-            '120',
+            '125',
+            2022,
+            'fall',
         );
     });
 });
