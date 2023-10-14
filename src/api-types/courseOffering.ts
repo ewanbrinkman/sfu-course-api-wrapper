@@ -79,7 +79,6 @@ export interface RawApiSchedulePart {
     endTime: string;
     startDate: string;
 }
-export type RawApiSchedule = RawApiSchedulePart[];
 
 export interface ProcessedApiSchedulePart {
     roomNumber: number;
@@ -93,7 +92,6 @@ export interface ProcessedApiSchedulePart {
     endTime: string;
     startDate: string;
 }
-export type ProcessedApiSchedule = ProcessedApiSchedulePart[];
 
 export interface GradingScheme {
     description: string;
@@ -124,7 +122,7 @@ export interface ProcessedApiCourseOffering {
     instructors: ProcessedApiInstructor[];
     deliveryMethod: DeliveryMethod;
     term: string;
-    schedule: ProcessedApiSchedule;
+    schedule: ProcessedApiSchedulePart[];
     type: Enrollment;
     gradingScheme?: GradingScheme;
     internal: {
@@ -176,7 +174,7 @@ export interface RawApiCourseOffering {
         designation: string;
     };
     instructor: RawApiInstructor[];
-    courseSchedule: RawApiSchedule;
+    courseSchedule: RawApiSchedulePart[];
     grades?: GradingScheme;
     requiredText?: Textbook[];
     recommendedText?: Textbook[];

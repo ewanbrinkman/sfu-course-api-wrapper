@@ -1,17 +1,15 @@
 import type {
-    ProcessedApiCourseOffering,
     RawApiCourseOffering,
-    ProcessedApiInstructor,
-    ProcessedApiSchedule,
+    ProcessedApiCourseOffering,
     DegreeLevel,
     DeliveryMethod,
     Enrollment,
     GradingScheme,
     Textbook,
 } from '@api-types';
-import { convertStringDaysToEnumDays } from '@utils';
+import { Instructor, SchedulePart } from '@api';
 
-export class CourseOffering implements ProcessedApiCourseOffering {
+export default class CourseOffering implements ProcessedApiCourseOffering {
     title: string;
     name: string;
     department: string;
@@ -28,10 +26,10 @@ export class CourseOffering implements ProcessedApiCourseOffering {
     requirements: string;
     educationalGoals: string;
     specialTopic: string;
-    instructors: ProcessedApiInstructor[];
+    instructors: Instructor[];
     deliveryMethod: DeliveryMethod;
     term: string;
-    schedule: ProcessedApiSchedule;
+    schedule: SchedulePart[];
     type: Enrollment;
     gradingScheme?: GradingScheme;
     internal: {
@@ -58,32 +56,14 @@ export class CourseOffering implements ProcessedApiCourseOffering {
     static fromRawApiCourseOffering(
         rawApiCourseOffering: RawApiCourseOffering,
     ): CourseOffering {
-        const instructors: ProcessedApiInstructor[] =
-            rawApiCourseOffering.instructor.map((instructor) => ({
-                profileUrl: instructor.profileUrl,
-                commonName: instructor.commonName,
-                firstName: instructor.firstName,
-                lastName: instructor.lastName,
-                phone: instructor.phone,
-                role: instructor.roleCode,
-                name: instructor.name,
-                officeHours: instructor.officeHours,
-                office: instructor.office,
-                email: instructor.email,
-            }));
-        const schedule: ProcessedApiSchedule =
-            rawApiCourseOffering.courseSchedule.map((schedulePart) => ({
-                roomNumber: schedulePart.roomNumber,
-                endDate: schedulePart.endDate,
-                campus: schedulePart.campus,
-                buildingCode: schedulePart.buildingCode,
-                days: convertStringDaysToEnumDays(schedulePart.days),
-                sectionCode: schedulePart.sectionCode,
-                startTime: schedulePart.startTime,
-                isExam: schedulePart.isExam,
-                endTime: schedulePart.endDate,
-                startDate: schedulePart.startTime,
-            }));
+        const instructors: Instructor[] = rawApiCourseOffering.instructor.map(
+            (rawApiInstructor) =>
+                Instructor.fromRawApiInstructor(rawApiInstructor),
+        );
+        const schedule: SchedulePart[] =
+            rawApiCourseOffering.courseSchedule.map((rawApiSchedulePart) =>
+                SchedulePart.fromRawApiSchedulePart(rawApiSchedulePart),
+            );
 
         const processedApiCourseOffering: ProcessedApiCourseOffering = {
             title: rawApiCourseOffering.info.title,
