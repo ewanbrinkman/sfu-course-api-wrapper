@@ -9,9 +9,6 @@ import { CourseOffering, Section } from '@api';
 import wrappers from '@wrappers';
 
 export default class Course {
-    private courseOfferings: Map<string, CourseOffering | undefined> =
-        new Map();
-
     title: string;
     description: string;
     corequisites: string;
@@ -26,7 +23,7 @@ export default class Course {
     year: CourseOutlinesYear;
     term: CourseOutlinesTerm;
 
-    sections: Record<string, CourseOffering>;
+    private sections: Record<string, CourseOffering | undefined>;
 
     constructor(
         courseData: ProcessedApiCourse,
@@ -36,48 +33,17 @@ export default class Course {
     ) {
         Object.assign(this, courseData);
 
-        this.courseOfferings = courseData.sections.reduce(
+        this.sections = courseData.sections.reduce(
             (courseOfferings, section) => {
-                courseOfferings.set(section.section, undefined);
+                courseOfferings[section.section] = undefined;
                 return courseOfferings;
             },
-            new Map<string, CourseOffering | undefined>(),
+            {} as Record<string, CourseOffering | undefined>,
         );
 
         this.department = department;
         this.year = year;
         this.term = term;
-
-        this.sections = new Proxy(
-            {},
-            {
-                get: async (
-                    target: Record<string, CourseOffering>,
-                    section: string,
-                ) => {
-                    // If the course offering section hasn't been loaded yet,
-                    // load it (request it from the API).
-                    if (this.courseOfferings.get(section) === undefined) {
-                        // Request the course offering from the API and save it.
-                        const courseOfferingData =
-                            await wrappers.courseOffering(
-                                this.department,
-                                this.number,
-                                section,
-                                this.year,
-                                this.term,
-                            );
-
-                        this.courseOfferings.set(
-                            section,
-                            courseOfferingData,
-                        );
-                    }
-
-                    return this.courseOfferings.get(section);
-                },
-            },
-        );
     }
 
     static fromRawApiCourse(
@@ -107,11 +73,45 @@ export default class Course {
         return new Course(processedApiCourse, department, year, term);
     }
 
-    // getSections(): string[] {
-    //     return Array.from(this.courseOfferings.keys());
-    // }
+    public hasSection(section: string): boolean {
+        return section in this.sections;
+    }
 
-    hasSection(section: string): boolean {
-        return this.courseOfferings.has(section);
+    public async getSection(section: string): Promise<CourseOffering> {
+        if (this.sections[section] === undefined) {
+            const courseOfferingData: CourseOffering =
+                await this.getCourseOffering(section);
+            this.sections[section] = courseOfferingData;
+        }
+
+        return this.sections[section] as CourseOffering;
+    }
+
+    private async getCourseOffering(section: string): Promise<CourseOffering> {
+        return await wrappers.courseOffering(
+            this.department,
+            this.number,
+            section,
+            this.year,
+            this.term,
+        );
+    }
+
+    async *[Symbol.asyncIterator](): AsyncIterableIterator<CourseOffering> {
+        const sectionKeys = Object.keys(this.sections);
+
+        for (const sectionKey of sectionKeys) {
+            yield await this.getSection(sectionKey);
+        }
+    }
+
+    public async getSections(): Promise<CourseOffering[]> {
+        const sections: CourseOffering[] = [];
+
+        for await (const courseOffering of this) {
+            sections.push(courseOffering);
+        }
+
+        return sections;
     }
 }

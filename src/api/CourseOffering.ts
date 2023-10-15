@@ -104,14 +104,14 @@ export default class CourseOffering {
         return new CourseOffering(processedApiCourseOffering);
     }
 
-    get primaryInstructors(): Instructor[] {
+    public get primaryInstructors(): Instructor[] {
         return this.instructors.filter(
             (instructor) =>
                 instructor.role === InstructorRole.PrimaryInstructor,
         );
     }
 
-    get secondaryInstructors(): Instructor[] {
+    public get secondaryInstructors(): Instructor[] {
         return this.instructors.filter(
             (instructor) =>
                 instructor.role === InstructorRole.SecondaryInstructor,
