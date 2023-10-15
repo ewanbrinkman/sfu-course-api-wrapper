@@ -10,5 +10,7 @@ describe('courseOffering', () => {
             2021,
             'fall',
         );
+
+        expect(courseOfferingData).toMatchSnapshot();
     });
 });

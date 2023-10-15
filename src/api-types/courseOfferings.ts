@@ -5,7 +5,7 @@ import type {
     ProcessedApiSchedulePart,
     RawApiCourseBase,
     ProcessedApiCourseBase,
-    ProcessedApiCourseBaseNotes
+    ProcessedApiCourseBaseNotes,
 } from '@api-types';
 
 export enum DeliveryMethod {
@@ -37,13 +37,14 @@ export interface Textbook {
     details: string;
 }
 
-export interface ProcessedApiCourseOfferingNotes extends ProcessedApiCourseBaseNotes {
+export interface ProcessedApiCourseOfferingNotes
+    extends ProcessedApiCourseBaseNotes {
     grading: string;
     registrar: string;
     requiredReading: string;
     departmentalUndergraduateNotes: string;
     short?: string;
-};
+}
 
 export interface ProcessedApiCourseOffering extends ProcessedApiCourseBase {
     name: string;
@@ -60,7 +61,7 @@ export interface ProcessedApiCourseOffering extends ProcessedApiCourseBase {
     term: string;
     schedule: ProcessedApiSchedulePart[];
     type: Enrollment;
-    gradingScheme?: GradingScheme;
+    gradingScheme?: GradingScheme[];
     internal: {
         outlinePath: string;
         number: number;
@@ -98,7 +99,7 @@ export interface RawApiCourseOffering {
     info: RawApiCourseOfferingInfo;
     instructor: RawApiInstructor[];
     courseSchedule: RawApiSchedulePart[];
-    grades?: GradingScheme;
+    grades?: GradingScheme[];
     requiredText?: Textbook[];
     recommendedText?: Textbook[];
 }

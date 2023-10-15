@@ -21,5 +21,5 @@ export default async function course(
         )
     ).data;
 
-    return Course.fromRawApiCourse(rawApiCourse);
+    return Course.fromRawApiCourse(rawApiCourse, department, year, term);
 }

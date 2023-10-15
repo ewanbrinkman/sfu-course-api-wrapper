@@ -8,9 +8,10 @@ import type {
     Textbook,
     ProcessedApiCourseOfferingNotes,
 } from '@api-types';
+import { InstructorRole } from '@api-types';
 import { Instructor, SchedulePart } from '@api';
 
-export default class CourseOffering implements ProcessedApiCourseOffering {
+export default class CourseOffering {
     title: string;
     name: string;
     department: string;
@@ -32,7 +33,7 @@ export default class CourseOffering implements ProcessedApiCourseOffering {
     term: string;
     schedule: SchedulePart[];
     type: Enrollment;
-    gradingScheme?: GradingScheme;
+    gradingScheme?: GradingScheme[];
     internal: {
         outlinePath: string;
         number: number;
@@ -101,5 +102,19 @@ export default class CourseOffering implements ProcessedApiCourseOffering {
             },
         };
         return new CourseOffering(processedApiCourseOffering);
+    }
+
+    get primaryInstructors(): Instructor[] {
+        return this.instructors.filter(
+            (instructor) =>
+                instructor.role === InstructorRole.PrimaryInstructor,
+        );
+    }
+
+    get secondaryInstructors(): Instructor[] {
+        return this.instructors.filter(
+            (instructor) =>
+                instructor.role === InstructorRole.SecondaryInstructor,
+        );
     }
 }
