@@ -4,6 +4,7 @@
         "baseUrl": "./test",
         "rootDir": "./test",
         "paths": {
+            "@wrappers": ["../src/wrappers"],
             "@utils": ["../src/utils"],
             "@utils/*": ["../src/utils/*"],
             "@api-types": ["../src/api-types"],

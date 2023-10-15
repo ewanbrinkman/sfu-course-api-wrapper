@@ -1,29 +1,58 @@
 import type {
-    DegreeLevel,
-    DeliveryMethod,
-    Enrollment,
-    GradingScheme,
-    Textbook,
     RawApiInstructor,
     RawApiSchedulePart,
     ProcessedApiInstructor,
     ProcessedApiSchedulePart,
+    RawApiCourseBase,
+    ProcessedApiCourseBase,
+    ProcessedApiCourseBaseNotes,
 } from '@api-types';
 
-export interface ProcessedApiCourseOffering {
-    title: string;
+export enum DeliveryMethod {
+    InPerson = 'In Person',
+    DistanceEducation = 'Distance Education',
+}
+
+export enum DegreeLevel {
+    Undergraduate = 'UGRD',
+    Graduate = 'GRAD',
+}
+
+export enum Enrollment {
+    EnrollmentSection = 'e',
+    NonEnrollment = 'n',
+}
+
+export enum InstructorRole {
+    PrimaryInstructor = 'PI',
+    SecondaryInstructor = 'SI',
+}
+
+export interface GradingScheme {
+    description: string;
+    weight: number;
+}
+
+export interface Textbook {
+    details: string;
+}
+
+export interface ProcessedApiCourseOfferingNotes
+    extends ProcessedApiCourseBaseNotes {
+    grading: string;
+    registrar: string;
+    requiredReading: string;
+    departmentalUndergraduateNotes: string;
+    short?: string;
+}
+
+export interface ProcessedApiCourseOffering extends ProcessedApiCourseBase {
     name: string;
     department: string;
-    number: number;
     section: string;
-    units: number;
     degreeLevel: DegreeLevel;
-    description: string;
     details: string;
-    designation: string;
     materials: string;
-    prerequisites: string;
-    corequisites: string;
     requirements: string;
     educationalGoals: string;
     specialTopic: string;
@@ -32,58 +61,45 @@ export interface ProcessedApiCourseOffering {
     term: string;
     schedule: ProcessedApiSchedulePart[];
     type: Enrollment;
-    gradingScheme?: GradingScheme;
+    gradingScheme?: GradingScheme[];
     internal: {
         outlinePath: string;
         number: number;
     };
-    notes: {
-        general: string;
-        grading: string;
-        registrar: string;
-        requiredReading: string;
-        departmentalUndergraduateNotes: string;
-        short?: string;
-    };
+    notes: ProcessedApiCourseOfferingNotes;
     text: {
         required?: Textbook[];
         recommended?: Textbook[];
     };
 }
 
+interface RawApiCourseOfferingInfo extends RawApiCourseBase {
+    educationalGoals: string;
+    deliveryMethod: DeliveryMethod;
+    section: string;
+    type: Enrollment;
+    classNumber: number;
+    departmentalUgradNotes: string;
+    requiredReadingNotes: string;
+    registrarNotes: string;
+    shortNote?: string;
+    outlinePath: string;
+    term: string;
+    requirements: string;
+    gradingNotes: string;
+    dept: string;
+    degreeLevel: DegreeLevel;
+    specialTopic: string;
+    courseDetails: string;
+    materials: string;
+    name: string;
+}
+
 export interface RawApiCourseOffering {
-    info: {
-        educationalGoals: string;
-        notes: string;
-        deliveryMethod: DeliveryMethod;
-        description: string;
-        section: string;
-        units: number;
-        title: string;
-        type: Enrollment;
-        classNumber: number;
-        departmentalUgradNotes: string;
-        prerequisites: string;
-        number: number;
-        requiredReadingNotes: string;
-        registrarNotes: string;
-        shortNote?: string;
-        outlinePath: string;
-        term: string;
-        requirements: string;
-        gradingNotes: string;
-        corequisites: string;
-        dept: string;
-        degreeLevel: DegreeLevel;
-        specialTopic: string;
-        courseDetails: string;
-        materials: string;
-        name: string;
-        designation: string;
-    };
+    info: RawApiCourseOfferingInfo;
     instructor: RawApiInstructor[];
     courseSchedule: RawApiSchedulePart[];
-    grades?: GradingScheme;
+    grades?: GradingScheme[];
     requiredText?: Textbook[];
     recommendedText?: Textbook[];
 }

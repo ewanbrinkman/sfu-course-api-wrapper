@@ -1,4 +1,20 @@
-import type { Campus, SectionCode, Day } from '@api-types';
+import type { SectionCode } from '@api-types';
+
+export enum Campus {
+    Burnaby = 'Burnaby',
+    Surrey = 'Surrey',
+    Vancouver = 'Vancouver',
+}
+
+export enum Day {
+    Monday = 'Mo',
+    Tuesday = 'Tu',
+    Wednesday = 'We',
+    Thursday = 'Th',
+    Friday = 'Fr',
+    Saturday = 'Sa',
+    Sunday = 'Su',
+}
 
 export interface RawApiSchedulePart {
     roomNumber: number;

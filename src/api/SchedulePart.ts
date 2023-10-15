@@ -7,7 +7,7 @@ import type {
 } from '@api-types';
 import { convertStringDaysToEnumDays } from '@utils';
 
-export default class SchedulePart implements ProcessedApiSchedulePart {
+export default class SchedulePart {
     roomNumber: number;
     endDate: string;
     campus: Campus;

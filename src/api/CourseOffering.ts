@@ -6,14 +6,16 @@ import type {
     Enrollment,
     GradingScheme,
     Textbook,
+    ProcessedApiCourseOfferingNotes,
 } from '@api-types';
+import { InstructorRole } from '@api-types';
 import { Instructor, SchedulePart } from '@api';
 
-export default class CourseOffering implements ProcessedApiCourseOffering {
+export default class CourseOffering {
     title: string;
     name: string;
     department: string;
-    number: number;
+    number: string;
     section: string;
     units: number;
     degreeLevel: DegreeLevel;
@@ -31,19 +33,12 @@ export default class CourseOffering implements ProcessedApiCourseOffering {
     term: string;
     schedule: SchedulePart[];
     type: Enrollment;
-    gradingScheme?: GradingScheme;
+    gradingScheme?: GradingScheme[];
     internal: {
         outlinePath: string;
         number: number;
     };
-    notes: {
-        general: string;
-        grading: string;
-        registrar: string;
-        requiredReading: string;
-        departmentalUndergraduateNotes: string;
-        short?: string;
-    };
+    notes: ProcessedApiCourseOfferingNotes;
     text: {
         required?: Textbook[];
         recommended?: Textbook[];
@@ -107,5 +102,19 @@ export default class CourseOffering implements ProcessedApiCourseOffering {
             },
         };
         return new CourseOffering(processedApiCourseOffering);
+    }
+
+    public get primaryInstructors(): Instructor[] {
+        return this.instructors.filter(
+            (instructor) =>
+                instructor.role === InstructorRole.PrimaryInstructor,
+        );
+    }
+
+    public get secondaryInstructors(): Instructor[] {
+        return this.instructors.filter(
+            (instructor) =>
+                instructor.role === InstructorRole.SecondaryInstructor,
+        );
     }
 }

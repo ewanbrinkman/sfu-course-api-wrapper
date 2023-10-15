@@ -6,9 +6,9 @@ import type {
 } from '@api-types';
 import { CourseOffering } from '@api';
 
-export default async function courseOutline(
+export default async function courseOffering(
     department: string,
-    number: number,
+    number: string,
     section: string,
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',

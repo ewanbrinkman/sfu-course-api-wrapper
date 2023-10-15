@@ -4,7 +4,7 @@ import type {
     InstructorRole,
 } from '@api-types';
 
-export default class Instructor implements ProcessedApiInstructor {
+export default class Instructor {
     profileUrl: string;
     commonName?: string;
     firstName: string;

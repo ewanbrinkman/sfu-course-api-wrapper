@@ -9,6 +9,7 @@
         "declarationMap": true,
         "sourceMap": true,
         "paths": {
+            "@wrappers": ["./wrappers"],
             "@utils": ["./utils"],
             "@utils/*": ["./utils/*"],
             "@api-types": ["./api-types"],
