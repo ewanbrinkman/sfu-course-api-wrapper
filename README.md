@@ -10,7 +10,7 @@ An asynchronous TypeScript wrapper for the SFU API.
 import sfuapi, { CourseOffering } from 'sfuapi';
 
 (async () => {
-    const courseOffering: CourseOffering = await sfuapi.courseOffering('cmpt', 120, 'd100');
+    const courseOffering: CourseOffering = await sfuapi.courseOffering('cmpt', 120, 'd100', 2021, 'fall');
     console.log(courseOffering);
 })();
 ```
