@@ -1,11 +1,6 @@
 import course from '../../src/wrappers/course';
 import Course from '../../src/api/Course';
 import CourseOffering from '../../src/api/CourseOffering';
-import {
-    DegreeLevel,
-    DeliveryMethod,
-    Enrollment,
-} from '../../src/api-types/courseOfferings';
 
 describe('course', () => {
     test('request cmpt 125 fall 2022', async () => {
