@@ -16,7 +16,9 @@
   <p align="center">
     An asynchronous TypeScript wrapper for SFU's API.
     <br />
-    <a href="https://github.com/ewanbrinkman/sfuapi"><strong>Explore the docs</strong></a>
+    <a href="https://github.com/ewanbrinkman/sfuapi"><strong>README docs</strong></a>
+    ·
+    <a href="https://github.com/ewanbrinkman/sfuapi"><strong>TypeDoc docs</strong></a>
     <br />
     <br />
     <a href="https://github.com/ewanbrinkman/sfuapi/issues">Report Bug</a>
@@ -143,6 +145,9 @@ const courseOffering: CourseOffering = await sfuapi.courseOffering(
 
 ### Wrapper Classes
 
+For the examples, assume an instance of the course called `course` has been
+created.
+
 #### Check if a course has a given section
 
 ```typescript
@@ -187,7 +192,7 @@ department: `string`<br> number: `string`<br> year:
 </td>
 <td>
 
-[Course](#course)
+Promise<[Course](#course)>
 
 </td>
 </tr>
@@ -203,11 +208,12 @@ Get data about a specific course section. Since it is a course section, more inf
 <td>
 
 department: `string`<br> number: `string`<br> section: `string`<br> year:
-`CourseOutlinesYear = 'current'`<br> term: `CourseOutlinesTerm = 'current'`</td>
+`CourseOutlinesYear = 'current'`<br> term: `CourseOutlinesTerm = 'current'`
 
+</td>
 <td>
 
-[CourseOffering](#course-offering)
+Promise<[CourseOffering](#course-offering)>
 
 </td>
 </tr>
@@ -217,9 +223,6 @@ department: `string`<br> number: `string`<br> section: `string`<br> year:
 ### Wrapper Classes
 
 #### Course
-
-For the examples, assume an instance of the course called `course` has been
-created.
 
 <table>
 <thead>
@@ -234,18 +237,59 @@ created.
 <tr>
 <td>
 
-`hasSection`</td>
+`hasSection`
 
+</td>
 <td>
 Checks if the course has a section with the given name.
 </td>
 <td>
 
-section: `string`</td>
+section: `string`
 
+</td>
+<td>
+boolean
+</td>
+</tr>
+<tr>
 <td>
 
-`boolean`
+`getSection`
+
+</td>
+<td>
+Gets a specific section of a course.
+</td>
+<td>
+
+section: `string`
+
+</td>
+<td>
+
+Promise<[CourseOffering](#course-offering)>
+
+</td>
+</tr>
+</tr>
+<tr>
+<td>
+
+`getSections`
+
+</td>
+<td>
+Gets all sections of a course.
+</td>
+<td>
+
+*None*
+
+</td>
+<td>
+
+Promise<[CourseOffering](#course-offering)[]>
 
 </td>
 </tr>
@@ -253,6 +297,55 @@ section: `string`</td>
 </table>
 
 #### Course Offering
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Parameters</th>
+<th>Return Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`primaryInstructors`
+
+</td>
+<td>
+Returns all primary instructors of the course.
+</td>
+<td>
+
+*None*
+
+</td>
+<td>
+Instructor[]
+</td>
+</tr>
+<tr>
+<td>
+
+`secondaryInstructors`
+
+</td>
+<td>
+Returns all secondary instructors of the course.
+</td>
+<td>
+
+*None*
+
+</td>
+<td>
+Instructor[]
+</td>
+</tr>
+</tbody>
+</table>
 
 <!-- Contributing. -->
 
