@@ -16,9 +16,9 @@
   <p align="center">
     An asynchronous TypeScript wrapper for SFU's API.
     <br />
-    <a href="https://github.com/ewanbrinkman/sfuapi"><strong>README docs</strong></a>
+    <a href="#documentation"><strong>README docs</strong></a>
     ·
-    <a href="https://github.com/ewanbrinkman/sfuapi"><strong>TypeDoc docs</strong></a>
+    <a href="https://ewanbrinkman.github.io/sfuapi/"><strong>TypeDoc docs</strong></a>
     <br />
     <br />
     <a href="https://github.com/ewanbrinkman/sfuapi/issues">Report Bug</a>
@@ -145,7 +145,7 @@ const courseOffering: CourseOffering = await sfuapi.courseOffering(
 
 ### Wrapper Classes
 
-For the examples, assume an instance of the course called `course` has been
+For the examples, assume an instance of `Course` called `course` has been
 created.
 
 #### Check if a course has a given section
@@ -156,7 +156,7 @@ const hasSection: boolean = await course.hasSection('d100');
 
 ## Documentation
 
-For further documention, see the TypeDoc documentation here.
+For further documention, see the [TypeDoc documentation](https://ewanbrinkman.github.io/sfuapi/).
 
 ### Wrapper Functions
 
@@ -284,7 +284,7 @@ Gets all sections of a course.
 </td>
 <td>
 
-*None*
+_None_
 
 </td>
 <td>
@@ -319,7 +319,7 @@ Returns all primary instructors of the course.
 </td>
 <td>
 
-*None*
+_None_
 
 </td>
 <td>
@@ -337,7 +337,7 @@ Returns all secondary instructors of the course.
 </td>
 <td>
 
-*None*
+_None_
 
 </td>
 <td>

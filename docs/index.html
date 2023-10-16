@@ -12,10 +12,278 @@
 <div class="col-content">
 <div class="tsd-page-title">
 <h2>sfuapi</h2></div>
-<div class="tsd-panel tsd-typography"><a id="md:sfu-api-wrapper" class="tsd-anchor"></a><h1><a href="#md:sfu-api-wrapper">SFU API Wrapper</a></h1><p>An asynchronous TypeScript wrapper for the SFU API.</p>
-<a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">Usage</a></h2><a id="md:example" class="tsd-anchor"></a><h3><a href="#md:example">Example</a></h3><pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">sfuapi</span><span class="hl-1">, { </span><span class="hl-2">CourseOffering</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;sfuapi&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-1">(</span><span class="hl-4">async</span><span class="hl-1"> () </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">courseOffering</span><span class="hl-1">: </span><span class="hl-6">CourseOffering</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">sfuapi</span><span class="hl-1">.</span><span class="hl-7">courseOffering</span><span class="hl-1">(</span><br/><span class="hl-1">        </span><span class="hl-3">&#39;cmpt&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-3">&#39;105w&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-3">&#39;d100&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-8">2022</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-3">&#39;fall&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    );</span><br/><span class="hl-1">    </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-7">log</span><span class="hl-1">(</span><span class="hl-2">courseOffering</span><span class="hl-1">);</span><br/><span class="hl-1">})();</span>
+<div class="tsd-panel tsd-typography"><div align="center">
+
+<p><a href="https://github.com/ewanbrinkman/sfuapi/graphs/contributors"><img src="https://img.shields.io/github/contributors/ewanbrinkman/sfuapi.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/ewanbrinkman/sfuapi/network/members"><img src="https://img.shields.io/github/forks/ewanbrinkman/sfuapi.svg?style=for-the-badge" alt="Forks"></a> <a href="https://github.com/ewanbrinkman/sfuapi/stargazers"><img src="https://img.shields.io/github/stars/ewanbrinkman/sfuapi.svg?style=for-the-badge" alt="Stargazers"></a>
+<a href="https://github.com/ewanbrinkman/sfuapi/issues"><img src="https://img.shields.io/github/issues/ewanbrinkman/sfuapi.svg?style=for-the-badge" alt="Issues"></a>
+<a href="https://github.com/ewanbrinkman/sfuapi/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ewanbrinkman/sfuapi.svg?style=for-the-badge" alt="MIT License"></a>
+<a href="https://linkedin.com/in/ewan-brinkman"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="LinkedIn"></a></p>
+</div>
+
+<!-- Project logo. -->
+<br />
+<div align="center">
+  <h1 align="center">SFU API Wrapper</h1>
+
+  <p align="center">
+    An asynchronous TypeScript wrapper for SFU's API.
+    <br />
+    <a href="#documentation"><strong>README docs</strong></a>
+    ·
+    <a href="https://ewanbrinkman.github.io/sfuapi/"><strong>TypeDoc docs</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/ewanbrinkman/sfuapi/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/ewanbrinkman/sfuapi/issues">Request Feature</a>
+  </p>
+</div>
+
+<!-- Table of contents. -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+<!-- About the project. -->
+
+<a id="md:about-the-project" class="tsd-anchor"></a><h2><a href="#md:about-the-project">About The Project</a></h2><p>This project was made since there is no developed wrapper that I know of for
+SFU&#39;s API. The goal is to not simply return the JSON data from the API, but
+custom classes with useful methods.</p>
+<!-- Getting started. -->
+
+<a id="md:getting-started" class="tsd-anchor"></a><h2><a href="#md:getting-started">Getting Started</a></h2><p>How to set up locally. This package is not currently published to npm.</p>
+<a id="md:prerequisites" class="tsd-anchor"></a><h3><a href="#md:prerequisites">Prerequisites</a></h3><ul>
+<li>npm<pre><code class="language-sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">npm@latest</span><span class="hl-1"> </span><span class="hl-3">-g</span>
 </code><button>Copy</button></pre>
-<a id="md:contribution" class="tsd-anchor"></a><h2><a href="#md:contribution">Contribution</a></h2><p>Feel free to submit a pull request.</p>
+</li>
+</ul>
+<a id="md:installation" class="tsd-anchor"></a><h3><a href="#md:installation">Installation</a></h3><ol>
+<li>Clone the repo<pre><code class="language-sh"><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-2">clone</span><span class="hl-1"> </span><span class="hl-2">https://github.com/ewanbrinkman/sfuapi.git</span>
+</code><button>Copy</button></pre>
+</li>
+<li>Install NPM packages<pre><code class="language-sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span>
+</code><button>Copy</button></pre>
+</li>
+<li>Build.<pre><code class="language-sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">build</span>
+</code><button>Copy</button></pre>
+</li>
+<li>Go to the directory of your own project. Then, install <code>sfuapi</code> in your own
+project.<pre><code class="language-sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">/path/to/local/sfuapi/installed/package</span>
+</code><button>Copy</button></pre>
+</li>
+</ol>
+<!-- Usage. -->
+
+<a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">Usage</a></h2><a id="md:full-basic-example" class="tsd-anchor"></a><h3><a href="#md:full-basic-example">Full Basic Example</a></h3><pre><code class="language-typescript"><span class="hl-4">import</span><span class="hl-1"> </span><span class="hl-5">sfuapi</span><span class="hl-1">, { </span><span class="hl-5">CourseOffering</span><span class="hl-1"> } </span><span class="hl-4">from</span><span class="hl-1"> </span><span class="hl-2">&#39;sfuapi&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-1">(</span><span class="hl-3">async</span><span class="hl-1"> () </span><span class="hl-3">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-6">courseOffering</span><span class="hl-1">: </span><span class="hl-7">CourseOffering</span><span class="hl-1"> = </span><span class="hl-4">await</span><span class="hl-1"> </span><span class="hl-5">sfuapi</span><span class="hl-1">.</span><span class="hl-0">courseOffering</span><span class="hl-1">(</span><br/><span class="hl-1">        </span><span class="hl-2">&#39;cmpt&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-2">&#39;105w&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-2">&#39;d100&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-8">2022</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-2">&#39;fall&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    );</span><br/><span class="hl-1">    </span><span class="hl-5">console</span><span class="hl-1">.</span><span class="hl-0">log</span><span class="hl-1">(</span><span class="hl-5">courseOffering</span><span class="hl-1">);</span><br/><span class="hl-1">})();</span>
+</code><button>Copy</button></pre>
+<a id="md:wrapper-functions" class="tsd-anchor"></a><h3><a href="#md:wrapper-functions">Wrapper Functions</a></h3><p>To use these functions, first import <code>sfuapi</code>:</p>
+<pre><code class="language-typescript"><span class="hl-4">import</span><span class="hl-1"> </span><span class="hl-5">sfuapi</span><span class="hl-1"> </span><span class="hl-4">from</span><span class="hl-1"> </span><span class="hl-2">&#39;sfuapi&#39;</span><span class="hl-1">;</span>
+</code><button>Copy</button></pre>
+<p>For type hinting, the return values can also be imported alongside <code>sfuapi</code>:</p>
+<pre><code class="language-typescript"><span class="hl-4">import</span><span class="hl-1"> </span><span class="hl-5">sfuapi</span><span class="hl-1">, { </span><span class="hl-5">Course</span><span class="hl-1"> } </span><span class="hl-4">from</span><span class="hl-1"> </span><span class="hl-2">&#39;sfuapi&#39;</span><span class="hl-1">;</span>
+</code><button>Copy</button></pre>
+<a id="md:get-a-course" class="tsd-anchor"></a><h4><a href="#md:get-a-course">Get a course</a></h4><pre><code class="language-typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-6">course</span><span class="hl-1">: </span><span class="hl-7">Course</span><span class="hl-1"> = </span><span class="hl-4">await</span><span class="hl-1"> </span><span class="hl-5">sfuapi</span><span class="hl-1">.</span><span class="hl-0">course</span><span class="hl-1">(</span><span class="hl-2">&#39;cmpt&#39;</span><span class="hl-1">, </span><span class="hl-2">&#39;120&#39;</span><span class="hl-1">, </span><span class="hl-8">2021</span><span class="hl-1">, </span><span class="hl-2">&#39;fall&#39;</span><span class="hl-1">);</span>
+</code><button>Copy</button></pre>
+<a id="md:get-a-course-offering" class="tsd-anchor"></a><h4><a href="#md:get-a-course-offering">Get a course offering</a></h4><pre><code class="language-typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-6">courseOffering</span><span class="hl-1">: </span><span class="hl-7">CourseOffering</span><span class="hl-1"> = </span><span class="hl-4">await</span><span class="hl-1"> </span><span class="hl-5">sfuapi</span><span class="hl-1">.</span><span class="hl-0">courseOffering</span><span class="hl-1">(</span><br/><span class="hl-1">    </span><span class="hl-2">&#39;cmpt&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&#39;120&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&#39;d100&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-8">2021</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&#39;fall&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">);</span>
+</code><button>Copy</button></pre>
+<a id="md:wrapper-classes" class="tsd-anchor"></a><h3><a href="#md:wrapper-classes">Wrapper Classes</a></h3><p>For the examples, assume an instance of <code>Course</code> called <code>course</code> has been
+created.</p>
+<a id="md:check-if-a-course-has-a-given-section" class="tsd-anchor"></a><h4><a href="#md:check-if-a-course-has-a-given-section">Check if a course has a given section</a></h4><pre><code class="language-typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-6">hasSection</span><span class="hl-1">: </span><span class="hl-7">boolean</span><span class="hl-1"> = </span><span class="hl-4">await</span><span class="hl-1"> </span><span class="hl-5">course</span><span class="hl-1">.</span><span class="hl-0">hasSection</span><span class="hl-1">(</span><span class="hl-2">&#39;d100&#39;</span><span class="hl-1">);</span>
+</code><button>Copy</button></pre>
+<a id="md:documentation" class="tsd-anchor"></a><h2><a href="#md:documentation">Documentation</a></h2><p>For further documention, see the <a href="https://ewanbrinkman.github.io/sfuapi/">TypeDoc documentation</a>.</p>
+<a id="md:wrapper-functions-1" class="tsd-anchor"></a><h3><a href="#md:wrapper-functions-1">Wrapper Functions</a></h3><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Parameters</th>
+<th>Return Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+<p><code>course</code></p>
+</td>
+<td>
+
+<p>Get data about a course, independent of course section. If more information such
+as the course instructors and schedule is wanted, use <code>getSection</code> on the return
+value of type <code>Course</code>. Alternatively, simply use the <code>courseOffering</code> wrapper
+function.</p>
+</td>
+<td>
+
+<p>department: <code>string</code><br> number: <code>string</code><br> year:
+<code>CourseOutlinesYear = &#39;current&#39;</code><br> term: <code>CourseOutlinesTerm = &#39;current&#39;</code></p>
+</td>
+<td>
+
+<p>Promise&lt;<a href="#course">Course</a>&gt;</p>
+</td>
+</tr>
+<tr>
+<td>
+
+<p><code>courseOffering</code></p>
+</td>
+<td>
+Get data about a specific course section. Since it is a course section, more information is included, such as the course instructors and schedule.
+</td>
+<td>
+
+<p>department: <code>string</code><br> number: <code>string</code><br> section: <code>string</code><br> year:
+<code>CourseOutlinesYear = &#39;current&#39;</code><br> term: <code>CourseOutlinesTerm = &#39;current&#39;</code></p>
+</td>
+<td>
+
+<p>Promise&lt;<a href="#course-offering">CourseOffering</a>&gt;</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<a id="md:wrapper-classes-1" class="tsd-anchor"></a><h3><a href="#md:wrapper-classes-1">Wrapper Classes</a></h3><a id="md:course" class="tsd-anchor"></a><h4><a href="#md:course">Course</a></h4><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Parameters</th>
+<th>Return Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+<p><code>hasSection</code></p>
+</td>
+<td>
+Checks if the course has a section with the given name.
+</td>
+<td>
+
+<p>section: <code>string</code></p>
+</td>
+<td>
+boolean
+</td>
+</tr>
+<tr>
+<td>
+
+<p><code>getSection</code></p>
+</td>
+<td>
+Gets a specific section of a course.
+</td>
+<td>
+
+<p>section: <code>string</code></p>
+</td>
+<td>
+
+<p>Promise&lt;<a href="#course-offering">CourseOffering</a>&gt;</p>
+</td>
+</tr>
+</tr>
+<tr>
+<td>
+
+<p><code>getSections</code></p>
+</td>
+<td>
+Gets all sections of a course.
+</td>
+<td>
+
+<p><em>None</em></p>
+</td>
+<td>
+
+<p>Promise&lt;<a href="#course-offering">CourseOffering</a>[]&gt;</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<a id="md:course-offering" class="tsd-anchor"></a><h4><a href="#md:course-offering">Course Offering</a></h4><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Parameters</th>
+<th>Return Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+<p><code>primaryInstructors</code></p>
+</td>
+<td>
+Returns all primary instructors of the course.
+</td>
+<td>
+
+<p><em>None</em></p>
+</td>
+<td>
+Instructor[]
+</td>
+</tr>
+<tr>
+<td>
+
+<p><code>secondaryInstructors</code></p>
+</td>
+<td>
+Returns all secondary instructors of the course.
+</td>
+<td>
+
+<p><em>None</em></p>
+</td>
+<td>
+Instructor[]
+</td>
+</tr>
+</tbody>
+</table>
+
+<!-- Contributing. -->
+
+<a id="md:contributing" class="tsd-anchor"></a><h2><a href="#md:contributing">Contributing</a></h2><p>Feel free to fork and create a pull request, or open an issue.</p>
+<!-- License. -->
+
+<a id="md:license" class="tsd-anchor"></a><h2><a href="#md:license">License</a></h2><p>Distributed under the MIT License. See <code>LICENSE</code> for more information.</p>
+<!-- Contact. -->
+
+<a id="md:contact" class="tsd-anchor"></a><h2><a href="#md:contact">Contact</a></h2><p>Ewan Brinkman</p>
+<p>Project Link:
+<a href="https://github.com/ewanbrinkman/sfuapi">https://github.com/ewanbrinkman/sfuapi</a></p>
+<!-- Markdown links and images -->
+
 </div></div>
 <div class="col-sidebar">
 <div class="page-menu">
@@ -38,14 +306,39 @@
 <ul>
 <li>
 <ul>
-<li><a href="#md:sfu-api-wrapper"><span>SFU API <wbr/>Wrapper</span></a></li>
+<li><a href="#md:about-the-project"><span>About <wbr/>The <wbr/>Project</span></a></li>
 <li>
 <ul>
+<li><a href="#md:getting-started"><span>Getting <wbr/>Started</span></a></li>
+<li>
+<ul>
+<li><a href="#md:prerequisites"><span>Prerequisites</span></a></li>
+<li><a href="#md:installation"><span>Installation</span></a></li></ul></li>
 <li><a href="#md:usage"><span>Usage</span></a></li>
 <li>
 <ul>
-<li><a href="#md:example"><span>Example</span></a></li></ul></li>
-<li><a href="#md:contribution"><span>Contribution</span></a></li></ul></li></ul></li></ul></div></details></div>
+<li><a href="#md:full-basic-example"><span>Full <wbr/>Basic <wbr/>Example</span></a></li>
+<li><a href="#md:wrapper-functions"><span>Wrapper <wbr/>Functions</span></a></li>
+<li>
+<ul>
+<li><a href="#md:get-a-course"><span>Get a course</span></a></li>
+<li><a href="#md:get-a-course-offering"><span>Get a course offering</span></a></li></ul></li>
+<li><a href="#md:wrapper-classes"><span>Wrapper <wbr/>Classes</span></a></li>
+<li>
+<ul>
+<li><a href="#md:check-if-a-course-has-a-given-section"><span>Check if a course has a given section</span></a></li></ul></li></ul></li>
+<li><a href="#md:documentation"><span>Documentation</span></a></li>
+<li>
+<ul>
+<li><a href="#md:wrapper-functions-1"><span>Wrapper <wbr/>Functions</span></a></li>
+<li><a href="#md:wrapper-classes-1"><span>Wrapper <wbr/>Classes</span></a></li>
+<li>
+<ul>
+<li><a href="#md:course"><span>Course</span></a></li>
+<li><a href="#md:course-offering"><span>Course <wbr/>Offering</span></a></li></ul></li></ul></li>
+<li><a href="#md:contributing"><span>Contributing</span></a></li>
+<li><a href="#md:license"><span>License</span></a></li>
+<li><a href="#md:contact"><span>Contact</span></a></li></ul></li></ul></li></ul></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="modules.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1"></use></svg><span>sfuapi</span></a>
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base=".">
