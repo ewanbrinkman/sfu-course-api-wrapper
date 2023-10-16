@@ -47,7 +47,7 @@
   </ol>
 </details>
 
-<!-- Abiut the project. -->
+<!-- About the project. -->
 
 ## About The Project
 
@@ -109,6 +109,34 @@ import sfuapi, { CourseOffering } from 'sfuapi';
 })();
 ```
 
+### Wrapper Functions
+
+Get a course:
+
+```typescript
+const course: Course = await sfuapi.course('cmpt', '120', 2021, 'fall');
+```
+
+Get a course offering:
+
+```typescript
+const courseOffering: CourseOffering = await sfuapi.courseOffering(
+    'cmpt',
+    '120',
+    'd100',
+    2021,
+    'fall',
+);
+```
+
+### Wrapper Classes
+
+Check if a course has a given section:
+
+```typescript
+const hasSection: boolean = await course.hasSection('d100');
+```
+
 ## Documentation
 
 For further documention, see here.
@@ -131,10 +159,9 @@ import sfuapi, { Course } from 'sfuapi';
 <thead>
 <tr>
 <th>Function</th>
-<th style="min-width: 200px;">Description</th>
-<th style="min-width: 300px;">Parameters</th>
+<th>Description</th>
+<th>Parameters</th>
 <th>Return Value</th>
-<th style="min-width: 400px;">Example</th>
 </tr>
 </thead>
 <tbody>
@@ -163,18 +190,6 @@ department: `string`<br> number: `string`<br> year:
 [Course](#course)
 
 </td>
-<td>
-
-```typescript
-const course: Course = await sfuapi.course(
-    'cmpt',
-    '120',
-    'fall',
-    '2021',
-);
-```
-
-</td>
 </tr>
 <tr>
 <td>
@@ -195,19 +210,6 @@ department: `string`<br> number: `string`<br> section: `string`<br> year:
 [CourseOffering](#course-offering)
 
 </td>
-<td>
-
-```typescript
-const courseOffering: CourseOffering = await sfuapi.courseOffering(
-    'cmpt',
-    '120',
-    'd100',
-    'fall',
-    '2021',
-);
-```
-
-</td>
 </tr>
 </tbody>
 </table>
@@ -223,10 +225,9 @@ created.
 <thead>
 <tr>
 <th>Method</th>
-<th style="min-width: 200px;">Description</th>
+<th>Description</th>
 <th>Parameters</th>
 <th>Return Value</th>
-<th style="min-width: 400px;">Example</th>
 </tr>
 </thead>
 <tbody>
@@ -245,15 +246,6 @@ section: `string`</td>
 <td>
 
 `boolean`
-
-</td>
-<td>
-
-```typescript
-const hasSection: boolean = await course.hasSection(
-    'd100',
-);
-```
 
 </td>
 </tr>
