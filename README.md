@@ -92,7 +92,7 @@ How to set up locally. This package is not currently published to npm.
 
 ## Usage
 
-### Basic Example
+### Full Basic Example
 
 ```typescript
 import sfuapi, { CourseOffering } from 'sfuapi';
@@ -111,13 +111,25 @@ import sfuapi, { CourseOffering } from 'sfuapi';
 
 ### Wrapper Functions
 
-Get a course:
+To use these functions, first import `sfuapi`:
+
+```typescript
+import sfuapi from 'sfuapi';
+```
+
+For type hinting, the return values can also be imported alongside `sfuapi`:
+
+```typescript
+import sfuapi, { Course } from 'sfuapi';
+```
+
+#### Get a course
 
 ```typescript
 const course: Course = await sfuapi.course('cmpt', '120', 2021, 'fall');
 ```
 
-Get a course offering:
+#### Get a course offering
 
 ```typescript
 const courseOffering: CourseOffering = await sfuapi.courseOffering(
@@ -131,7 +143,7 @@ const courseOffering: CourseOffering = await sfuapi.courseOffering(
 
 ### Wrapper Classes
 
-Check if a course has a given section:
+#### Check if a course has a given section
 
 ```typescript
 const hasSection: boolean = await course.hasSection('d100');
@@ -139,21 +151,9 @@ const hasSection: boolean = await course.hasSection('d100');
 
 ## Documentation
 
-For further documention, see here.
+For further documention, see the TypeDoc documentation here.
 
 ### Wrapper Functions
-
-To use these functions, first import `sfuapi`:
-
-```typescript
-import sfuapi from 'sfuapi';
-```
-
-For type hinting, the return values can also be imported alongside `sfuapi`:
-
-```typescript
-import sfuapi, { Course } from 'sfuapi';
-```
 
 <table>
 <thead>
