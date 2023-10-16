@@ -131,10 +131,10 @@ import sfuapi, { Course } from 'sfuapi';
 <thead>
 <tr>
 <th>Function</th>
-<th>Description</th>
-<th>Parameters</th>
+<th style="min-width: 200px;">Description</th>
+<th style="min-width: 300px;">Parameters</th>
 <th>Return Value</th>
-<th>Example</th>
+<th style="min-width: 400px;">Example</th>
 </tr>
 </thead>
 <tbody>
@@ -223,10 +223,10 @@ created.
 <thead>
 <tr>
 <th>Method</th>
-<th>Description</th>
+<th style="min-width: 200px;">Description</th>
 <th>Parameters</th>
 <th>Return Value</th>
-<th>Example</th>
+<th style="min-width: 400px;">Example</th>
 </tr>
 </thead>
 <tbody>
