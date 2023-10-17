@@ -8,10 +8,8 @@ import type {
 import { convertStringDaysToEnumDays } from '@utils';
 
 export default class SchedulePart {
-    roomNumber: number;
     endDate: string;
     campus: Campus;
-    buildingCode: string;
     days: Day[];
     sectionCode: SectionCode;
     startTime: string;
@@ -27,10 +25,8 @@ export default class SchedulePart {
         rawApiSchedulePart: RawApiSchedulePart,
     ): SchedulePart {
         const processedApiSchedulePart: ProcessedApiSchedulePart = {
-            roomNumber: rawApiSchedulePart.roomNumber,
             endDate: rawApiSchedulePart.endDate,
             campus: rawApiSchedulePart.campus,
-            buildingCode: rawApiSchedulePart.buildingCode,
             days: convertStringDaysToEnumDays(rawApiSchedulePart.days),
             sectionCode: rawApiSchedulePart.sectionCode,
             startTime: rawApiSchedulePart.startTime,

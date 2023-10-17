@@ -17,10 +17,8 @@ export enum Day {
 }
 
 export interface RawApiSchedulePart {
-    roomNumber: number;
     endDate: string;
     campus: Campus;
-    buildingCode: string;
     days: string;
     sectionCode: SectionCode;
     startTime: string;
@@ -30,10 +28,8 @@ export interface RawApiSchedulePart {
 }
 
 export interface ProcessedApiSchedulePart {
-    roomNumber: number;
     endDate: string;
     campus: Campus;
-    buildingCode: string;
     days: Day[];
     sectionCode: SectionCode;
     startTime: string;
