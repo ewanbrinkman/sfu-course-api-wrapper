@@ -16,9 +16,9 @@
   <p align="center">
     An asynchronous TypeScript wrapper for SFU's API.
     <br />
-    <a href="#documentation"><strong>README docs</strong></a>
+    <a href="#usage"><strong>Usage Examples</strong></a>
     ·
-    <a href="https://ewanbrinkman.github.io/sfuapi/"><strong>TypeDoc docs</strong></a>
+    <a href="https://ewanbrinkman.github.io/sfuapi/"><strong>TypeDoc Documentation</strong></a>
     <br />
     <br />
     <a href="https://github.com/ewanbrinkman/sfuapi/issues">Report Bug</a>
@@ -42,7 +42,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#documentation">Documentation</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -65,26 +64,28 @@ How to set up locally. This package is not currently published to npm.
 
 ### Prerequisites
 
--   npm
-    ```sh
-    npm install npm@latest -g
-    ```
+-   node
+-   npm _(comes with node)_
 
 ### Installation
 
-1. Clone the repo
+1. Clone this repository.
     ```sh
     git clone https://github.com/ewanbrinkman/sfuapi.git
     ```
-2. Install NPM packages
+2. Go to the directory of `sfuapi`.
+    ```sh
+    cd sfuapi
+    ```
+3. Install NPM packages.
     ```sh
     npm install
     ```
-3. Build.
+4. Build.
     ```sh
     npm run build
     ```
-4. Go to the directory of your own project. Then, install `sfuapi` in your own
+5. Go to the directory of your own project. Then, install `sfuapi` in your own
    project.
     ```sh
     npm install /path/to/local/sfuapi/installed/package
@@ -93,6 +94,14 @@ How to set up locally. This package is not currently published to npm.
 <!-- Usage. -->
 
 ## Usage
+
+Example usage of this API wrapper are shown below. For more detail, including
+all the properties each class has, see the
+<a href="https://ewanbrinkman.github.io/sfuapi/">TypeDoc Documentation</a>.
+
+Note that the API wrapper functions are the default export, while classes
+returned by the API wrapper functions and types used by this API wrapper are
+named exports.
 
 ### Full Basic Example
 
@@ -113,18 +122,6 @@ import sfuapi, { CourseOffering } from 'sfuapi';
 
 ### Wrapper Functions
 
-To use these functions, first import `sfuapi`:
-
-```typescript
-import sfuapi from 'sfuapi';
-```
-
-For type hinting, the return values can also be imported alongside `sfuapi`:
-
-```typescript
-import sfuapi, { Course } from 'sfuapi';
-```
-
 #### Get a course
 
 ```typescript
@@ -143,7 +140,7 @@ const courseOffering: CourseOffering = await sfuapi.courseOffering(
 );
 ```
 
-### Wrapper Classes
+### Course Class
 
 For the examples, assume an instance of `Course` called `course` has been
 created.
@@ -154,198 +151,25 @@ created.
 const hasSection: boolean = await course.hasSection('d100');
 ```
 
-## Documentation
+#### Get a course offering section of a course
 
-For further documention, see the [TypeDoc documentation](https://ewanbrinkman.github.io/sfuapi/).
+```typescript
+const courseOffering: CourseOffering = await course.getSection('d100');
+```
 
-### Wrapper Functions
+#### Get all course offering sections of a course
 
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Parameters</th>
-<th>Return Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+```typescript
+const courseOfferings: CourseOffering[] = await course.getSections();
+```
 
-`course`
+#### Loop through all course offering sections of a course
 
-</td>
-<td>
-
-Get data about a course, independent of course section. If more information such
-as the course instructors and schedule is wanted, use `getSection` on the return
-value of type `Course`. Alternatively, simply use the `courseOffering` wrapper
-function.
-
-</td>
-<td>
-
-department: `string`<br> number: `string`<br> year:
-`CourseOutlinesYear = 'current'`<br> term: `CourseOutlinesTerm = 'current'`
-
-</td>
-<td>
-
-Promise<[Course](#course)>
-
-</td>
-</tr>
-<tr>
-<td>
-
-`courseOffering`
-
-</td>
-<td>
-Get data about a specific course section. Since it is a course section, more information is included, such as the course instructors and schedule.
-</td>
-<td>
-
-department: `string`<br> number: `string`<br> section: `string`<br> year:
-`CourseOutlinesYear = 'current'`<br> term: `CourseOutlinesTerm = 'current'`
-
-</td>
-<td>
-
-Promise<[CourseOffering](#course-offering)>
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### Wrapper Classes
-
-#### Course
-
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Parameters</th>
-<th>Return Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-`hasSection`
-
-</td>
-<td>
-Checks if the course has a section with the given name.
-</td>
-<td>
-
-section: `string`
-
-</td>
-<td>
-boolean
-</td>
-</tr>
-<tr>
-<td>
-
-`getSection`
-
-</td>
-<td>
-Gets a specific section of a course.
-</td>
-<td>
-
-section: `string`
-
-</td>
-<td>
-
-Promise<[CourseOffering](#course-offering)>
-
-</td>
-</tr>
-</tr>
-<tr>
-<td>
-
-`getSections`
-
-</td>
-<td>
-Gets all sections of a course.
-</td>
-<td>
-
-_None_
-
-</td>
-<td>
-
-Promise<[CourseOffering](#course-offering)[]>
-
-</td>
-</tr>
-</tbody>
-</table>
-
-#### Course Offering
-
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Parameters</th>
-<th>Return Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-`primaryInstructors`
-
-</td>
-<td>
-Returns all primary instructors of the course.
-</td>
-<td>
-
-_None_
-
-</td>
-<td>
-Instructor[]
-</td>
-</tr>
-<tr>
-<td>
-
-`secondaryInstructors`
-
-</td>
-<td>
-Returns all secondary instructors of the course.
-</td>
-<td>
-
-_None_
-
-</td>
-<td>
-Instructor[]
-</td>
-</tr>
-</tbody>
-</table>
+```typescript
+for await (const courseOffering of course) {
+    console.log(courseOffering);
+}
+```
 
 <!-- Contributing. -->
 
