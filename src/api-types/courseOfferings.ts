@@ -73,7 +73,7 @@ export interface ProcessedApiCourseOffering extends ProcessedApiCourseBase {
     };
 }
 
-interface RawApiCourseOfferingInfo extends RawApiCourseBase {
+export interface RawApiCourseOfferingInfo extends RawApiCourseBase {
     educationalGoals: string;
     deliveryMethod: DeliveryMethod;
     section: string;
