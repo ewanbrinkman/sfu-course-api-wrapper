@@ -60,7 +60,6 @@ CourseOffering {
   "requirements": undefined,
   "schedule": [
     SchedulePart {
-      "buildingCode": undefined,
       "campus": "Burnaby",
       "days": [
         "Mo",
@@ -68,13 +67,11 @@ CourseOffering {
       "endDate": "Tue Dec 06 00:00:00 PST 2022",
       "endTime": "Tue Dec 06 00:00:00 PST 2022",
       "isExam": false,
-      "roomNumber": undefined,
       "sectionCode": "LEC",
       "startDate": "14:30",
       "startTime": "14:30",
     },
     SchedulePart {
-      "buildingCode": undefined,
       "campus": "Burnaby",
       "days": [
         "We",
@@ -82,7 +79,6 @@ CourseOffering {
       "endDate": "Tue Dec 06 00:00:00 PST 2022",
       "endTime": "Tue Dec 06 00:00:00 PST 2022",
       "isExam": false,
-      "roomNumber": undefined,
       "sectionCode": "LEC",
       "startDate": "14:30",
       "startTime": "14:30",
