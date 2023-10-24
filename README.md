@@ -8,7 +8,6 @@
 
 </div>
 
-<!-- Project logo. -->
 <br />
 <div align="center">
   <h1 align="center">SFU API Wrapper</h1>
@@ -48,15 +47,13 @@
   </ol>
 </details>
 
-<!-- About the project. -->
-
 ## About The Project
 
 This project was made since there is no developed wrapper that I know of for
 SFU's API. The goal is to not simply return the JSON data from the API, but
 custom classes with useful methods.
 
-<!-- Getting started. -->
+**This project is not endorsed or supported by Simon Fraser University.**
 
 ## Getting Started
 
@@ -90,8 +87,6 @@ How to set up locally. This package is not currently published to npm.
     ```sh
     npm install /path/to/local/sfu-api-wrapper/installed/package
     ```
-
-<!-- Usage. -->
 
 ## Usage
 
@@ -171,19 +166,13 @@ for await (const courseOffering of course) {
 }
 ```
 
-<!-- Contributing. -->
-
 ## Contributing
 
 Feel free to fork and create a pull request, or open an issue.
 
-<!-- License. -->
-
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-<!-- Contact. -->
 
 ## Contact
 
@@ -191,6 +180,12 @@ Ewan Brinkman
 
 Project Link:
 [https://github.com/ewanbrinkman/sfu-api-wrapper](https://github.com/ewanbrinkman/sfu-api-wrapper)
+
+
+## Acknowledgments
+
+- SFU's Course Outlines REST API documentation
+    - https://www.sfu.ca/outlines/help/api.html
 
 <!-- Markdown links and images -->
 
