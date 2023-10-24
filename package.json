@@ -1,5 +1,5 @@
 {
-    "name": "sfuapi",
+    "name": "@sfu-utils/api-wrapper",
     "version": "1.0.0",
     "description": "An asynchronous TypeScript wrapper for SFU's API.",
     "main": "lib/index.js",
@@ -18,16 +18,16 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ewanbrinkman/sfuapi.git"
+        "url": "git+https://github.com/ewanbrinkman/sfu-api-wrapper.git"
     },
     "author": "Ewan Brinkman",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/ewanbrinkman/sfuapi/issues"
+        "url": "https://github.com/ewanbrinkman/sfu-api-wrapper/issues"
     },
-    "homepage": "https://github.com/ewanbrinkman/sfuapi#readme",
+    "homepage": "https://github.com/ewanbrinkman/sfu-api-wrapper#readme",
     "devDependencies": {
-        "@types/jest": "^29.5.5",
+        "@types/jest": "^29.5.6",
         "@types/node": "^20.8.3",
         "jest": "^29.7.0",
         "prettier": "^3.0.3",
@@ -40,6 +40,7 @@
         "typescript-transform-paths": "^3.4.6"
     },
     "dependencies": {
-        "axios": "^1.5.1"
+        "axios": "^1.5.1",
+        "p-limit": "^4.0.0"
     }
 }
