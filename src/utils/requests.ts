@@ -1,4 +1,4 @@
-import urls from '@utils/urls.json';
+import apiConfig from '@config/api.json';
 import type { CourseOutlinesYear, CourseOutlinesTerm } from '@api-types';
 import axios, { AxiosResponse } from 'axios';
 
@@ -17,21 +17,21 @@ function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
     return async (
         ...parameters: (number | string)[]
     ): Promise<AxiosResponse> => {
+        const url = generateURLForSFUApi(baseUrl, ...parameters);
         try {
-            return await axios.get(
-                generateURLForSFUApi(baseUrl, ...parameters),
-            );
+            return await axios.get(url);
         } catch (error) {
+            console.error(`SFU API request failed for: ${url}`);
             throw error;
         }
     };
 }
 
 export const requestSFUCourseOutlinesApi = generateRequestSFUApiFunction(
-    urls.courseOutlines.baseUrl,
+    apiConfig.endpoints.courseOutlines.baseUrl,
 );
 export const requestSFUAcademicCalendarApi = generateRequestSFUApiFunction(
-    urls.academicCalendar.baseUrl,
+    apiConfig.endpoints.academicCalendar.baseUrl,
 );
 
 type requestSFUAcademicCalendarApiSectionFunction = (
@@ -59,13 +59,13 @@ function generateRequestSFUAcademicCalendarApiSectionFunction(
 
 export const requestSFUAcademicCalendarApiAreasOfStudy =
     generateRequestSFUAcademicCalendarApiSectionFunction(
-        urls.academicCalendar.areasOfStudy,
+        apiConfig.endpoints.academicCalendar.areasOfStudy,
     );
 export const requestSFUAcademicCalendarApiCourses =
     generateRequestSFUAcademicCalendarApiSectionFunction(
-        urls.academicCalendar.courses,
+        apiConfig.endpoints.academicCalendar.courses,
     );
 export const requestSFUAcademicCalendarApiPrograms =
     generateRequestSFUAcademicCalendarApiSectionFunction(
-        urls.academicCalendar.programs,
+        apiConfig.endpoints.academicCalendar.programs,
     );
