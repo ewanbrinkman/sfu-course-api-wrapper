@@ -3,6 +3,7 @@ export enum SectionCode {
     Tutorial = 'TUT',
     Lab = 'LAB',
     Seminar = 'SEM',
+    Coop = 'COP',
 }
 
 export interface RawApiCourseBase {

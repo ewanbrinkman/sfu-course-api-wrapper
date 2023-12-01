@@ -13,7 +13,8 @@
             "@utils": ["./utils"],
             "@utils/*": ["./utils/*"],
             "@api-types": ["./api-types"],
-            "@api": ["./api"]
+            "@api": ["./api"],
+            "@config/*": ["./config/*"]
         },
         "plugins": [
             {

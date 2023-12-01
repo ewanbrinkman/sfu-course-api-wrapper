@@ -1,5 +1,5 @@
 {
-    "name": "@sfu-utils/api-wrapper",
+    "name": "sfu-api-wrapper",
     "version": "1.0.0",
     "description": "An asynchronous TypeScript wrapper for SFU's API.",
     "main": "lib/index.js",
@@ -27,6 +27,7 @@
     },
     "homepage": "https://github.com/ewanbrinkman/sfu-api-wrapper#readme",
     "devDependencies": {
+        "@types/bluebird": "^3.5.42",
         "@types/jest": "^29.5.6",
         "@types/node": "^20.8.3",
         "jest": "^29.7.0",
@@ -41,6 +42,6 @@
     },
     "dependencies": {
         "axios": "^1.5.1",
-        "p-limit": "^4.0.0"
+        "bluebird": "^3.7.2"
     }
 }

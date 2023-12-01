@@ -8,7 +8,8 @@
             "@utils": ["../src/utils"],
             "@utils/*": ["../src/utils/*"],
             "@api-types": ["../src/api-types"],
-            "@api": ["../src/api"]
+            "@api": ["../src/api"],
+            "@config/*": ["../src/config/*"]
         }
     },
     "include": ["./test"]
