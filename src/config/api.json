@@ -1,4 +1,5 @@
 {
+    "requestInterval": 10,
     "concurrencyLimit": 1,
     "endpoints": {
         "courseOutlines": {

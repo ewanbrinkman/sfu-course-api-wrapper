@@ -1,13 +1,13 @@
 import type {
-    RawApiSchedulePart,
-    ProcessedApiSchedulePart,
+    RawSchedulePartData,
+    SchedulePartData,
     Campus,
     Day,
     SectionCode,
 } from '@api-types';
-import { convertStringDaysToEnumDays } from '@utils';
+import { processRawSchedulePartData } from '@utils';
 
-export default class SchedulePart {
+export default class SchedulePart implements SchedulePartData {
     endDate: string;
     campus: Campus;
     days: Day[];
@@ -17,24 +17,22 @@ export default class SchedulePart {
     endTime: string;
     startDate: string;
 
-    constructor(schedulePartData: ProcessedApiSchedulePart) {
-        Object.assign(this, schedulePartData);
+    constructor(schedulePartData: SchedulePartData) {
+        this.endDate = schedulePartData.endDate;
+        this.campus = schedulePartData.campus;
+        this.days = schedulePartData.days;
+        this.sectionCode = schedulePartData.sectionCode;
+        this.startTime = schedulePartData.startTime;
+        this.isExam = schedulePartData.isExam;
+        this.endTime = schedulePartData.endTime;
+        this.startDate = schedulePartData.startDate;
     }
 
-    static fromRawApiSchedulePart(
-        rawApiSchedulePart: RawApiSchedulePart,
+    static fromRawSchedulePartData(
+        rawSchedulePartData: RawSchedulePartData,
     ): SchedulePart {
-        const processedApiSchedulePart: ProcessedApiSchedulePart = {
-            endDate: rawApiSchedulePart.endDate,
-            campus: rawApiSchedulePart.campus,
-            days: convertStringDaysToEnumDays(rawApiSchedulePart.days),
-            sectionCode: rawApiSchedulePart.sectionCode,
-            startTime: rawApiSchedulePart.startTime,
-            isExam: rawApiSchedulePart.isExam,
-            endTime: rawApiSchedulePart.endDate,
-            startDate: rawApiSchedulePart.startTime,
-        };
+        const schedulePartData = processRawSchedulePartData(rawSchedulePartData);
 
-        return new SchedulePart(processedApiSchedulePart);
+        return new SchedulePart(schedulePartData);
     }
 }

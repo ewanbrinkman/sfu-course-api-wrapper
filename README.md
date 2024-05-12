@@ -102,17 +102,17 @@ named exports.
 ### Full Basic Example
 
 ```typescript
-import sfuApiWrapper, { CourseOffering } from '@sfu-wrappers/api';
+import sfuApiWrapper, { CourseSection } from '@sfu-wrappers/api';
 
 (async () => {
-    const courseOffering: CourseOffering = await sfuApiWrapper.courseOffering(
+    const courseSection: CourseSection = await sfuApiWrapper.courseSection(
         'cmpt',
         '105w',
         'd100',
         2022,
         'fall',
     );
-    console.log(courseOffering);
+    console.log(courseSection);
 })();
 ```
 
@@ -127,7 +127,7 @@ const course: Course = await sfuApiWrapper.course('cmpt', '120', 2021, 'fall');
 #### Get a course offering
 
 ```typescript
-const courseOffering: CourseOffering = await sfuApiWrapper.courseOffering(
+const courseSection: CourseSection = await sfuApiWrapper.courseSection(
     'cmpt',
     '120',
     'd100',
@@ -150,20 +150,20 @@ const hasSection: boolean = await course.hasSection('d100');
 #### Get a course offering section of a course
 
 ```typescript
-const courseOffering: CourseOffering = await course.getSection('d100');
+const courseSection: CourseSection = await course.getSection('d100');
 ```
 
 #### Get all course offering sections of a course
 
 ```typescript
-const courseOfferings: CourseOffering[] = await course.getSections();
+const courseSections: CourseSection[] = await course.getSections();
 ```
 
 #### Loop through all course offering sections of a course
 
 ```typescript
-for await (const courseOffering of course) {
-    console.log(courseOffering);
+for await (const courseSection of course) {
+    console.log(courseSection);
 }
 ```
 

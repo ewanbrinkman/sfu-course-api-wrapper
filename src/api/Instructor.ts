@@ -1,10 +1,11 @@
 import type {
-    RawApiInstructor,
-    ProcessedApiInstructor,
+    RawInstructorData,
+    InstructorData,
     InstructorRole,
 } from '@api-types';
+import { processRawInstructorData } from '@utils';
 
-export default class Instructor {
+export default class Instructor implements InstructorData {
     profileUrl: string;
     commonName?: string;
     firstName: string;
@@ -16,26 +17,24 @@ export default class Instructor {
     office: string;
     email: string;
 
-    constructor(instructorData: ProcessedApiInstructor) {
-        Object.assign(this, instructorData);
+    constructor(instructorData: InstructorData) {
+        this.profileUrl = instructorData.profileUrl;
+        this.commonName = instructorData.commonName;
+        this.firstName = instructorData.firstName;
+        this.lastName = instructorData.lastName;
+        this.phone = instructorData.phone;
+        this.role = instructorData.role;
+        this.name = instructorData.name;
+        this.officeHours = instructorData.officeHours;
+        this.office = instructorData.office;
+        this.email = instructorData.email;
     }
 
     static fromRawApiInstructor(
-        rawApiInstructor: RawApiInstructor,
+        rawInstructorData: RawInstructorData,
     ): Instructor {
-        const processedApiInstructor: ProcessedApiInstructor = {
-            profileUrl: rawApiInstructor.profileUrl,
-            commonName: rawApiInstructor.commonName,
-            firstName: rawApiInstructor.firstName,
-            lastName: rawApiInstructor.lastName,
-            phone: rawApiInstructor.phone,
-            role: rawApiInstructor.roleCode,
-            name: rawApiInstructor.name,
-            officeHours: rawApiInstructor.officeHours,
-            office: rawApiInstructor.office,
-            email: rawApiInstructor.email,
-        };
+        const instructorData = processRawInstructorData(rawInstructorData);
 
-        return new Instructor(processedApiInstructor);
+        return new Instructor(instructorData);
     }
 }

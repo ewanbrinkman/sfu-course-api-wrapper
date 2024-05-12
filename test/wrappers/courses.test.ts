@@ -1,14 +1,14 @@
-import courses from '../../src/wrappers/courses';
+import wrappers from '../../src/wrappers';
 import Course from '../../src/api/Course';
 
 describe('course', () => {
     test('request cmpt courses', async () => {
-        const coursesData = await courses('cmpt');
+        const courses = await wrappers.courses('cmpt');
 
-        coursesData.sort((a: Course, b: Course) => {
+        courses.sort((a: Course, b: Course) => {
             return a.number.localeCompare(b.number);
         });
 
-        expect(coursesData).toMatchSnapshot();
+        expect(courses).toMatchSnapshot();
     }, 15000);
 });

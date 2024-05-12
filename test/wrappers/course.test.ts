@@ -1,16 +1,16 @@
-import course from '../../src/wrappers/course';
+import wrappers from '../../src/wrappers';
 
 describe('course', () => {
     test('request cmpt 125 fall 2022', async () => {
-        const courseData = await course('cmpt', '125', 2022, 'fall');
+        const course = await wrappers.course('cmpt', '125', 2022, 'fall');
 
-        expect(courseData).toMatchSnapshot();
+        expect(course).toMatchSnapshot();
     });
-    test('get course offerings', async () => {
-        const courseData = await course('cmpt', '125', 2022, 'fall');
-        const courseOfferingData =
-            await courseData.getSection('d100');
+    test('get course section', async () => {
+        const course = await wrappers.course('cmpt', '125', 2022, 'fall');
+        const courseSection =
+            await course.getSection('d100');
 
-        expect(courseOfferingData).toMatchSnapshot();
+        expect(courseSection).toMatchSnapshot();
     });
 });

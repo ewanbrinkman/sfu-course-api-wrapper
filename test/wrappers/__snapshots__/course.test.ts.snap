@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`course get course offerings 1`] = `
-CourseOffering {
+exports[`course get course section 1`] = `
+CourseSection {
   "corequisites": "",
   "degreeLevel": "UGRD",
   "deliveryMethod": "In Person",
-  "department": "CMPT",
+  "department": "cmpt",
+  "departmentName": "CMPT",
   "description": "A rigorous introduction to computing science and computer programming, suitable for students who already have some background in computing science and programming.  Intended for students who will major in computing science or a related program. Topics include: memory management; fundamental algorithms; formally analyzing the running time of algorithms; abstract data types and elementary data structures; object-oriented programming and software design; specification and program correctness; reading and writing files; debugging tools; shell commands.",
   "designation": "Quantitative",
   "details": "This course is a rigorous introduction to computing science, intended primarily for students who have already taken CMPT 120 as an introduction to algorithms and programming. Students will learn fundamental concepts of computing science, basic principles of algorithm design and software development. All case studies will be presented in C and C++. Students will also learn the basic shell commands in Linux, and will learn how to run and debug their code using VS Cod
@@ -58,7 +59,7 @@ CourseOffering {
   "number": "125",
   "prerequisites": "CMPT 120 or CMPT 130, with a minimum grade of C-.",
   "requirements": undefined,
-  "schedule": [
+  "schedule": Schedule [
     SchedulePart {
       "campus": "Burnaby",
       "days": [
@@ -86,7 +87,8 @@ CourseOffering {
   ],
   "section": "D100",
   "specialTopic": "",
-  "term": "Fall 2022",
+  "term": "fall",
+  "termName": "Fall 2022",
   "text": {
     "recommended": undefined,
     "required": undefined,
@@ -94,22 +96,88 @@ CourseOffering {
   "title": "Introduction to Computing Science and Programming II",
   "type": "e",
   "units": "3",
+  "year": 2022,
 }
 `;
 
 exports[`course request cmpt 125 fall 2022 1`] = `
 Course {
   "corequisites": "",
-  "department": "cmpt",
-  "description": "A rigorous introduction to computing science and computer programming, suitable for students who already have some background in computing science and programming. Intended for students who will major in computing science or a related program. Topics include: memory management; fundamental algorithms; formally analyzing the running time of algorithms; abstract data types and elementary data structures; object-oriented programming and software design; specification and program correctness; reading and writing files; debugging tools; shell commands. Prerequisite: CMPT 120 or CMPT 130, with a minimum grade of C-. Students with credit for CMPT 126, 129, 135 or CMPT 200 or higher may not take this course for further credit. Quantitative.",
-  "designation": "Quantitative",
-  "notes": {
-    "general": "Students with credit for CMPT 126, 129, 135 or CMPT 200 or higher may not take this course for further credit.",
-  },
-  "number": "125",
-  "prerequisites": "Prerequisite: CMPT 120 or CMPT 130, with a minimum grade of C-.",
-  "recommended": "",
-  "sections": {
+  "courseSectionSummaries": [
+    {
+      "associatedCourse": "1",
+      "section": "d100",
+      "sectionCode": "LEC",
+      "sectionName": "D100",
+      "status": "a",
+      "type": "lecture",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d101",
+      "sectionCode": "LAB",
+      "sectionName": "D101",
+      "status": "a",
+      "type": "lab",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d102",
+      "sectionCode": "LAB",
+      "sectionName": "D102",
+      "status": "a",
+      "type": "lab",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d103",
+      "sectionCode": "LAB",
+      "sectionName": "D103",
+      "status": "a",
+      "type": "lab",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d104",
+      "sectionCode": "LAB",
+      "sectionName": "D104",
+      "status": "a",
+      "type": "lab",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d105",
+      "sectionCode": "LAB",
+      "sectionName": "D105",
+      "status": "a",
+      "type": "lab",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d106",
+      "sectionCode": "LAB",
+      "sectionName": "D106",
+      "status": "a",
+      "type": "lab",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d107",
+      "sectionCode": "LAB",
+      "sectionName": "D107",
+      "status": "a",
+      "type": "lab",
+    },
+    {
+      "associatedCourse": "1",
+      "section": "d108",
+      "sectionCode": "LAB",
+      "sectionName": "D108",
+      "status": "a",
+      "type": "lab",
+    },
+  ],
+  "courseSections": {
     "d100": undefined,
     "d101": undefined,
     "d102": undefined,
@@ -120,6 +188,15 @@ Course {
     "d107": undefined,
     "d108": undefined,
   },
+  "department": "cmpt",
+  "description": "A rigorous introduction to computing science and computer programming, suitable for students who already have some background in computing science and programming. Intended for students who will major in computing science or a related program. Topics include: memory management; fundamental algorithms; formally analyzing the running time of algorithms; abstract data types and elementary data structures; object-oriented programming and software design; specification and program correctness; reading and writing files; debugging tools; shell commands. Prerequisite: CMPT 120 or CMPT 130, with a minimum grade of C-. Students with credit for CMPT 126, 129, 135 or CMPT 200 or higher may not take this course for further credit. Quantitative.",
+  "designation": "Quantitative",
+  "notes": {
+    "general": "Students with credit for CMPT 126, 129, 135 or CMPT 200 or higher may not take this course for further credit.",
+  },
+  "number": "125",
+  "prerequisites": "Prerequisite: CMPT 120 or CMPT 130, with a minimum grade of C-.",
+  "recommended": "",
   "term": "fall",
   "title": "Introduction to Computing Science and Programming II",
   "units": "3",
