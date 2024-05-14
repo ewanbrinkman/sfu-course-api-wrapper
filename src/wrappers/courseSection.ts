@@ -13,7 +13,7 @@ export default async function courseSection(
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',
 ): Promise<CourseSection> {
-    const rawCourseSectionData: RawCourseSectionData = (
+    const response = (
         await requestSFUCourseOutlinesApi(
             year,
             term,
@@ -21,7 +21,8 @@ export default async function courseSection(
             number,
             section,
         )
-    ).data;
+    );
+    const rawCourseSectionData: RawCourseSectionData = await response.json();
 
     return CourseSection.fromRawCourseSectionData(rawCourseSectionData, year, term, department);
 }

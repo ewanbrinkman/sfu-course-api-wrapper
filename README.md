@@ -54,6 +54,8 @@ This project was made since there is no developed wrapper that I know of for
 SFU's API. The goal is to not simply return the JSON data from the API, but
 custom classes with useful methods.
 
+Also, this package has *zero* runtime dependencies! The [package.json](package.json) file only has "devDependencies", and no "dependencies".
+
 **This project is not endorsed or supported by Simon Fraser University.**
 
 ## Getting Started

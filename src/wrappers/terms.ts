@@ -10,9 +10,10 @@ type TermValues = TermValue[];
 export default async function terms(
     year: CourseOutlinesYear = 'current'
 ): Promise<Term[]> {
-    const rawTerms: TermValues = (
+    const response = (
         await requestSFUAcademicCalendarApi(year)
-    ).data;
+    );
+    const rawTerms: TermValues = await response.json();
 
     return rawTerms.map(rawTerm => rawTerm.value);
 }

@@ -12,9 +12,10 @@ export default async function courses(
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',
 ): Promise<Course[]> {
-    const rawDepartmentCourses: RawDepartmentCourse[] = (
+    const response = (
         await requestSFUAcademicCalendarApiCourses(year, term, department)
-    ).data;
+    );
+    const rawDepartmentCourses: RawDepartmentCourse[] = await response.json();
 
     // Can't request all of them at once, since that spams the API and the API
     // has problems with that.

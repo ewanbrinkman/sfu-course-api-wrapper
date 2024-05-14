@@ -10,9 +10,10 @@ export default async function department(
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',
 ): Promise<string[]> {
-    const rawDepartmentCourses: RawDepartmentCourse[] = (
+    const response = (
         await requestSFUAcademicCalendarApiCourses(year, term, department)
-    ).data;
+    );
+    const rawDepartmentCourses: RawDepartmentCourse[] = await response.json();
 
     return rawDepartmentCourses.map(rawDepartmentCourse => rawDepartmentCourse.value);
 }

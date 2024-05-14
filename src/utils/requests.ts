@@ -1,6 +1,5 @@
 import apiConfig from '@config/api.json';
 import type { CourseOutlinesYear, CourseOutlinesTerm } from '@api-types';
-import axios, { AxiosResponse } from 'axios';
 
 function generateURLForSFUApi(
     baseUrl: string,
@@ -11,31 +10,24 @@ function generateURLForSFUApi(
 
 type requestSFUApiFunction = (
     ...parameters: (number | string)[]
-) => Promise<AxiosResponse>;
+) => Promise<Response>;
 
 function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
     return async (
         ...parameters: (number | string)[]
-    ): Promise<AxiosResponse> => {
+    ): Promise<Response> => {
         const url = generateURLForSFUApi(baseUrl, ...parameters);
         for (let i = 0; i < apiConfig.requestRetry.maxAttempts; i++) {
             try {
-                const response = await axios.get(url);
-
-                if (response.status === 200) {
+                const response = await fetch(url);
+                if (response.ok) {
                     return response;
                 }
-                // else {
-                //     console.error(`Non-200 status code received (${response.status}) for: ${url}, retrying...`);
-                // }
             } catch (error) {
-                // console.error(`SFU API request failed for: ${url}, retrying...`);
+                console.error(`SFU API request failed for: ${url}, retrying...`);
             }
-            
+
             if (i !== apiConfig.requestRetry.maxAttempts - 1) {
-                // Wait before trying to request again. If all retries have been
-                // used up, there is no need to delay, since no more requests
-                // will be made.
                 await new Promise(resolve => setTimeout(resolve, apiConfig.requestRetry.delay));
             }
         }
@@ -55,7 +47,7 @@ type requestSFUAcademicCalendarApiSectionFunction = (
     year: CourseOutlinesYear,
     term: CourseOutlinesTerm,
     ...parameters: (number | string)[]
-) => Promise<AxiosResponse>;
+) => Promise<Response>;
 
 function generateRequestSFUAcademicCalendarApiSectionFunction(
     section: string,
@@ -64,7 +56,7 @@ function generateRequestSFUAcademicCalendarApiSectionFunction(
         year: CourseOutlinesYear = 'current',
         term: CourseOutlinesTerm = 'current',
         ...parameters: (number | string)[]
-    ): Promise<AxiosResponse> => {
+    ): Promise<Response> => {
         return await requestSFUAcademicCalendarApi(
             year,
             term,

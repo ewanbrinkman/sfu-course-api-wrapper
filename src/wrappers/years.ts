@@ -8,9 +8,10 @@ type YearValues = YearValue[];
 
 export default async function years(
 ): Promise<number[]> {
-    const rawYears: YearValues = (
+    const response = (
         await requestSFUAcademicCalendarApi()
-    ).data;
+    );
+    const rawYears: YearValues = await response.json();
 
     return rawYears.map(rawYear => rawYear.value);
 }

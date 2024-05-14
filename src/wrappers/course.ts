@@ -12,14 +12,13 @@ export default async function course(
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',
 ): Promise<Course> {
-    const rawCourseData: RawCourseData = (
-        await requestSFUAcademicCalendarApiCourses(
+    const response = await requestSFUAcademicCalendarApiCourses(
             year,
             term,
             department,
             number,
-        )
-    ).data;
+        );
+    const rawCourseData: RawCourseData = await response.json();
 
     return Course.fromRawCourseData(rawCourseData, year, term, department);
 }
