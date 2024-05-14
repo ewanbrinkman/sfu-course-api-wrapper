@@ -18,12 +18,29 @@ function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
         ...parameters: (number | string)[]
     ): Promise<AxiosResponse> => {
         const url = generateURLForSFUApi(baseUrl, ...parameters);
-        try {
-            return await axios.get(url);
-        } catch (error) {
-            console.error(`SFU API request failed for: ${url}`);
-            throw error;
+        for (let i = 0; i < apiConfig.requestRetry.maxAttempts; i++) {
+            try {
+                const response = await axios.get(url);
+
+                if (response.status === 200) {
+                    return response;
+                }
+                // else {
+                //     console.error(`Non-200 status code received (${response.status}) for: ${url}, retrying...`);
+                // }
+            } catch (error) {
+                // console.error(`SFU API request failed for: ${url}, retrying...`);
+            }
+            
+            if (i !== apiConfig.requestRetry.maxAttempts - 1) {
+                // Wait before trying to request again. If all retries have been
+                // used up, there is no need to delay, since no more requests
+                // will be made.
+                await new Promise(resolve => setTimeout(resolve, apiConfig.requestRetry.delay));
+            }
         }
+
+        throw new Error(`Retry limit (${apiConfig.requestRetry.maxAttempts}) reached for: ${url}`);
     };
 }
 

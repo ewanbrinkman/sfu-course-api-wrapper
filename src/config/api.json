@@ -11,5 +11,9 @@
             "courses": "courses",
             "programs": "programs"
         }
+    },
+    "requestRetry": {
+        "maxAttempts": 3,
+        "delay": 1000
     }
 }
