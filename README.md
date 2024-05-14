@@ -54,7 +54,9 @@ This project was made since there is no developed wrapper that I know of for
 SFU's API. The goal is to not simply return the JSON data from the API, but
 custom classes with useful methods.
 
-Also, this package has *zero* runtime dependencies! The [package.json](package.json) file only has "devDependencies", and no "dependencies".
+Also, this package has _zero_ runtime dependencies! The
+[package.json](package.json) file only has "devDependencies", and no
+"dependencies".
 
 **This project is not endorsed or supported by Simon Fraser University.**
 
@@ -85,8 +87,10 @@ How to set up locally. This package is not currently published to npm.
     ```sh
     npm run build
     ```
-5. Go to the directory of your own project. Then, install `sfu-api-wrapper` in your own
-   project.
+5. Go to the directory of your own project. Then, install `sfu-api-wrapper` in
+   your own project as shown below. The path is the where the `sfu-api-folder`
+   is located, **NOT** the location of the `lib` folder created by
+   `npm run build` in step 4 above.
     ```sh
     npm install /path/to/local/sfu-api-wrapper/installed/package
     ```
@@ -95,7 +99,8 @@ How to set up locally. This package is not currently published to npm.
 
 Example usage of this API wrapper are shown below. For more detail, including
 all the properties each class has, see the
-<a href="https://ewanbrinkman.github.io/sfu-api-wrapper/">TypeDoc Documentation</a>.
+<a href="https://ewanbrinkman.github.io/sfu-api-wrapper/">TypeDoc
+Documentation</a>.
 
 Note that the API wrapper functions are the default export, while classes
 returned by the API wrapper functions and types used by this API wrapper are
@@ -184,17 +189,17 @@ Ewan Brinkman
 Project Link:
 [https://github.com/ewanbrinkman/sfu-api-wrapper](https://github.com/ewanbrinkman/sfu-api-wrapper)
 
-
 ## Acknowledgments
 
-- SFU's Course Outlines REST API documentation
-    - https://www.sfu.ca/outlines/help/api.html
+-   SFU's Course Outlines REST API documentation
+    -   https://www.sfu.ca/outlines/help/api.html
 
 <!-- Markdown links and images -->
 
 [contributors-shield]:
     https://img.shields.io/github/contributors/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
-[contributors-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/graphs/contributors
+[contributors-url]:
+    https://github.com/ewanbrinkman/sfu-api-wrapper/graphs/contributors
 [forks-shield]:
     https://img.shields.io/github/forks/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
 [forks-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/network/members

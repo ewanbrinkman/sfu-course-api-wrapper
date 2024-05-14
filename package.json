@@ -1,5 +1,5 @@
 {
-    "name": "sfu-api-wrapper",
+    "name": "course-api-wrapper",
     "version": "1.0.0",
     "description": "An asynchronous TypeScript wrapper for SFU's API.",
     "main": "lib/index.js",
