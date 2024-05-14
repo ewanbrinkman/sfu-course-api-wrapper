@@ -108,11 +108,25 @@ named exports.
 
 ### Full Basic Example
 
+In a non-async environment:
+
 ```typescript
-import sfuApiWrapper, { CourseSection } from '@sfu-wrappers/api';
+import courseApiWrapper from 'course-api-wrapper';
+
+courseApiWrapper
+    .courseSection('cmpt', '105w', 'd100', 2022, 'fall')
+    .then((courseSection) => {
+        console.log(courseSection);
+    });
+```
+
+In an async environment:
+
+```typescript
+import courseApiWrapper from 'course-api-wrapper';
 
 (async () => {
-    const courseSection: CourseSection = await sfuApiWrapper.courseSection(
+    const courseSection = await courseApiWrapper.courseSection(
         'cmpt',
         '105w',
         'd100',
@@ -125,16 +139,16 @@ import sfuApiWrapper, { CourseSection } from '@sfu-wrappers/api';
 
 ### Wrapper Functions
 
-#### Get a course
+Get a course:
 
 ```typescript
-const course: Course = await sfuApiWrapper.course('cmpt', '120', 2021, 'fall');
+const course = await courseApiWrapper.course('cmpt', '120', 2021, 'fall');
 ```
 
-#### Get a course offering
+Get a course offering:
 
 ```typescript
-const courseSection: CourseSection = await sfuApiWrapper.courseSection(
+const courseSection = await sfuApiWrapper.courseSection(
     'cmpt',
     '120',
     'd100',
@@ -145,28 +159,28 @@ const courseSection: CourseSection = await sfuApiWrapper.courseSection(
 
 ### Course Class
 
-For the examples, assume an instance of `Course` called `course` has been
-created.
+For the examples, assume an instance of class `Course` (found in
+[Course.ts](src/api/Course.ts)) called `course` has been created.
 
-#### Check if a course has a given section
-
-```typescript
-const hasSection: boolean = await course.hasSection('d100');
-```
-
-#### Get a course offering section of a course
+Check if a course has a given section:
 
 ```typescript
-const courseSection: CourseSection = await course.getSection('d100');
+const hasSection = await course.hasSection('d100');
 ```
 
-#### Get all course offering sections of a course
+Get a section of a course:
 
 ```typescript
-const courseSections: CourseSection[] = await course.getSections();
+const courseSection = await course.getSection('d100');
 ```
 
-#### Loop through all course offering sections of a course
+Get all course offering sections of a course:
+
+```typescript
+const courseSections = await course.getSections();
+```
+
+Loop through all course offering sections of a course:
 
 ```typescript
 for await (const courseSection of course) {
