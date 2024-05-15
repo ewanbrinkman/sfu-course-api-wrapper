@@ -1,94 +1,78 @@
 import type {
-    RawApiCourse,
-    ProcessedApiCourse,
-    ProcessedApiCourseBaseNotes,
-    CourseOutlinesYear,
+    RawCourseData,
+    CourseData,
     CourseOutlinesTerm,
+    CourseSectionSummary,
+    CourseBaseData,
+    CourseOutlinesYear,
 } from '@api-types';
-import { CourseOffering, Section } from '@api';
+import { processRawCourseData } from '@utils';
+import { CourseSection } from '@api';
+import CourseBase from '@api/CourseBase';
 import wrappers from '@wrappers';
 
-export default class Course {
-    title: string;
-    description: string;
-    corequisites: string;
-    prerequisites: string;
-    number: string;
-    notes: ProcessedApiCourseBaseNotes;
-    units: number;
-    designation: string;
+export default class Course extends CourseBase implements CourseData {
     recommended: string;
+    courseSectionSummaries: CourseSectionSummary[];
 
-    department: string;
-    year: CourseOutlinesYear;
-    term: CourseOutlinesTerm;
+    private courseSections: Record<string, CourseSection | undefined>;
 
-    private sections: Record<string, CourseOffering | undefined>;
+    constructor(courseData: CourseData) {
+        const courseBaseData: CourseBaseData = courseData;
+        super(courseBaseData);
 
-    constructor(
-        courseData: ProcessedApiCourse,
-        department: string,
-        year: CourseOutlinesYear = 'current',
-        term: CourseOutlinesTerm = 'current',
-    ) {
-        Object.assign(this, courseData);
+        this.recommended = courseData.recommended;
+        this.courseSectionSummaries = courseData.courseSectionSummaries;
 
-        this.sections = courseData.sections.reduce(
-            (courseOfferings, section) => {
-                courseOfferings[section.section] = undefined;
-                return courseOfferings;
+        this.courseSections = courseData.courseSectionSummaries.reduce(
+            (courseSections, courseSectionSummary) => {
+                courseSections[courseSectionSummary.section] = undefined;
+                return courseSections;
             },
-            {} as Record<string, CourseOffering | undefined>,
+            {} as Record<string, CourseSection | undefined>,
         );
-
-        this.department = department;
-        this.year = year;
-        this.term = term;
     }
 
-    static fromRawApiCourse(
-        rawApiCourse: RawApiCourse,
+    static fromRawCourseData(
+        rawCourseData: RawCourseData,
+        year: CourseOutlinesYear,
+        term: CourseOutlinesTerm,
         department: string,
-        year: CourseOutlinesYear = 'current',
-        term: CourseOutlinesTerm = 'current',
     ): Course {
-        const sections: Section[] = rawApiCourse.sections.map((rawApiSection) =>
-            Section.fromRawApiSection(rawApiSection),
+        const courseData = processRawCourseData(
+            rawCourseData,
+            year,
+            term,
+            department,
         );
 
-        const processedApiCourse: ProcessedApiCourse = {
-            title: rawApiCourse.title,
-            description: rawApiCourse.description,
-            corequisites: rawApiCourse.corequisites,
-            prerequisites: rawApiCourse.prerequisites,
-            number: rawApiCourse.number,
-            notes: {
-                general: rawApiCourse.notes,
-            },
-            units: rawApiCourse.units,
-            designation: rawApiCourse.designation,
-            recommended: rawApiCourse.recommended,
-            sections: sections,
-        };
-        return new Course(processedApiCourse, department, year, term);
+        return new Course(courseData);
     }
 
-    public hasSection(section: string): boolean {
-        return section in this.sections;
+    public hasSection(courseSection: string): boolean {
+        return courseSection in this.courseSections;
     }
 
-    public async getSection(section: string): Promise<CourseOffering> {
-        if (this.sections[section] === undefined) {
-            const courseOfferingData: CourseOffering =
-                await this.getCourseOffering(section);
-            this.sections[section] = courseOfferingData;
+    public get hasSections(): boolean {
+        return Object.keys(this.courseSections).length >= 1;
+    }
+
+    public get sectionNumbers(): string[] {
+        return Object.keys(this.courseSections);
+    }
+
+    public async getSection(section: string): Promise<CourseSection> {
+        if (this.courseSections[section] === undefined) {
+            const courseSectionData: CourseSection =
+                await this.getCourseSection(section);
+            this.courseSections[section] = courseSectionData;
         }
 
-        return this.sections[section] as CourseOffering;
+        return this.courseSections[section] as CourseSection;
     }
 
-    private async getCourseOffering(section: string): Promise<CourseOffering> {
-        return await wrappers.courseOffering(
+    private async getCourseSection(section: string): Promise<CourseSection> {
+        return await wrappers.courseSection(
             this.department,
             this.number,
             section,
@@ -97,19 +81,19 @@ export default class Course {
         );
     }
 
-    async *[Symbol.asyncIterator](): AsyncIterableIterator<CourseOffering> {
-        const sectionKeys = Object.keys(this.sections);
+    async *[Symbol.asyncIterator](): AsyncIterableIterator<CourseSection> {
+        const sectionKeys = Object.keys(this.courseSections);
 
         for (const sectionKey of sectionKeys) {
             yield await this.getSection(sectionKey);
         }
     }
 
-    public async getSections(): Promise<CourseOffering[]> {
-        const sections: CourseOffering[] = [];
+    public async getSections(): Promise<CourseSection[]> {
+        const sections: CourseSection[] = [];
 
-        for await (const courseOffering of this) {
-            sections.push(courseOffering);
+        for await (const courseSection of this) {
+            sections.push(courseSection);
         }
 
         return sections;

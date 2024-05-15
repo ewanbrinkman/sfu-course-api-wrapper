@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`courseSection request cmpt 120 d100 2021 fall 1`] = `
+CourseSection {
+  "corequisites": "",
+  "degreeLevel": "UGRD",
+  "deliveryMethod": "In Person",
+  "department": "cmpt",
+  "departmentName": "CMPT",
+  "description": "An elementary introduction to computing science and computer programming, suitable for students with little or no programming background. Students will learn fundamental concepts and terminology of computing science, acquire elementary skills for programming in a high-level language, e.g. Python. The students will be exposed to diverse fields within, and applications of computing science. Topics will include: pseudocode; data types and control structures; fundamental algorithms; recursion; reading and writing files; measuring performance of algorithms; debugging tools; basic terminal navigation using shell commands. Treatment is informal and programming is presented as a problem-solving tool. ",
+  "designation": "Quantitative/Breadth-Science",
+  "details": "<p>An elementary introduction to computing science and computer programming, suitable for students with little or no programming background. Students will learn fundamental concepts and terminology of computing science, acquire elementary skills for programming in a high-level language and be exposed to diverse fields within, and applications of computing science. Most if not all course components (lectures, assignments, and exams) might be in an online format. ----------------------------------------------------------------------<br /><br />CMPT 120 PLACEMENT TEST &ndash; do you have enough computing knowledge to pass our placement test? Have you taken Computing Science courses in High School or elsewhere? Have you worked in a business or volunteered as a computer programmer? Have you written programs of 200-300 lines of code or more? IF YES you may NOT have to take CMPT 120 and could enroll directly into the next required courses &ndash; CMPT 125 and 127. Challenge yourself and take our placement test. https://courses.cs.sfu.ca/forms/cmpt-cmpt-120-placement-test/ IF NO &ndash; please go ahead and enroll in CMPT 120. ----------------------------------------------------------------------------<br /><br />(Added on June 6th) Midterm Date: The CMPT 120 midterm exam will be held on Wednesday, October 27, 2021, from 6:30-8:20 PM Vancouver time. All students enrolled in this course are expected to be available during this time. If you experience a course conflict when registering for this course on goSFU due to the midterm, see http://www.sfu.ca/computing/current-students/undergraduate-students/faq.html#item8link for procedures to enroll in this course.-----------------------------------------------------------<br /><br />As of 26 May, 2021, the university has announced its plan for approximately 70-80% of teaching in person in Fall 2021. It has also stated that: "not all courses will be delivered in person. The fall will be a transitional term. Deans, supported by the work of chairs and directors, will make final decisions about whether courses will be taught remotely or in person." Please continue to check our course outline for further information. Should this course be taught remotely, students must have access to a computer with internet access, allowing the use of a conferencing system such as Zoom or BB Collaborate Ultra. Some components of the course will require synchronous (real-time) participation during the scheduled lecture and/or exam times. Visual proctoring may be required, subject to university approval.<br /><br />"This course will be offered remotely."</p>",
+  "educationalGoals": "<h2 class="ParagraphTitle">Topics</h2>
+<ul>
+<li>History of computing science</li>
+<li>Algorithms and computational thinking</li>
+<li>Procedural programming in Python</li>
+<li>Data types and control structures</li>
+<li>Application areas within computing science</li>
+<li>Fundamental algorithms, including searching, sorting, basics of recursion</li>
+<li>Computability and complexity, introduction</li>
+<li>Basics of binary encoding</li>
+</ul>",
+  "gradingScheme": undefined,
+  "instructors": [
+    Instructor {
+      "commonName": "Victor",
+      "email": "vca45@sfu.ca",
+      "firstName": "Victor",
+      "lastName": "Cheung",
+      "name": "Victor Cheung",
+      "office": "",
+      "officeHours": "",
+      "phone": "",
+      "profileUrl": "",
+      "role": "PI",
+    },
+  ],
+  "internal": {
+    "number": "4479",
+    "outlinePath": "2021/fall/cmpt/120/d100",
+  },
+  "materials": "<h2 class="ParagraphTitle">Reference Books</h2>
+<ul>
+<li>Computer Science Illuminated, Nell Dale, John Lewis, Jones &amp; Bartlett, 2012, 9781449672843</li>
+<li>Starting out with Programming Logic and Design, Tony Gaddis, Pearson, 2015, 9780133985078</li>
+<li>Starting Out with Python-4th Edition, Tony Gaddis, Pearson, 2017, 9780134543666</li>
+</ul>",
+  "name": "CMPT 120 D100",
+  "notes": {
+    "departmentalUndergraduateNotes": "",
+    "general": "Students with credit for CMPT 102, 128, 130 or 166 may not take this course for further credit. Students who have taken CMPT 125, 129, 130 or 135 first may not then take this course for further credit.",
+    "grading": "<p>There will be assignments and multiple quizzes/exams. A more detailed marking scheme will be provided in the first class of the semester.</p>
+<p>Students must attain an overall passing grade on the weighted average of exams in the course in order to obtain a clear pass (C- or better).</p>",
+    "registrar": "<p><strong>ACADEMIC INTEGRITY: YOUR WORK, YOUR SUCCESS</strong></p>
+<p>SFU&rsquo;s Academic Integrity web site&nbsp;<a href="http://www.sfu.ca/students/academicintegrity.html">http://www.sfu.ca/students/academicintegrity.html</a>&nbsp;is filled with information on what is meant by academic dishonesty, where you can find resources to help with your studies and the consequences of cheating.&nbsp; Check out the site for more information and videos that help explain the issues in plain English.</p>
+<p>Each student is responsible for his or her conduct as it affects the University community.&nbsp; Academic dishonesty, in whatever form, is ultimately destructive of the values of the University. Furthermore, it is unfair and discouraging to the majority of students who pursue their studies honestly. Scholarly integrity is required of all members of the University.&nbsp;<a href="http://www.sfu.ca/policies/gazette/student/s10-01.html">http://www.sfu.ca/policies/gazette/student/s10-01.html</a></p>
+<p><strong>TEACHING AT SFU IN FALL 2021</strong></p>
+<p>Teaching at SFU in fall 2021 will involve primarily in-person instruction, with approximately 70 to 80 per cent of classes in person/on campus, with safety plans in place. &nbsp;Whether your course will be in-person or through remote methods will be clearly identified in the schedule of classes.&nbsp; You will also know at enrollment whether remote course components will be &ldquo;live&rdquo; (synchronous) or at your own pace (asynchronous).</p>
+<p>Enrolling in a course acknowledges that you are able to attend in whatever format is required.&nbsp; You should not enroll in a course that is in-person if you are not able to return to campus, and should be aware that remote study may entail different modes of learning, interaction with your instructor, and ways of getting feedback on your work than may be the case for in-person classes.</p>
+<p>Students with hidden or visible disabilities who may need class or exam accommodations, including in the context of remote learning, are advised to register with the <a href="http://www.sfu.ca/students/accessible-learning.html">SFU Centre for Accessible Learning</a>&nbsp;(<a href="mailto:caladmin@sfu.ca">caladmin@sfu.ca</a> or 778-782-3112) as early as possible in order to prepare for the fall 2021 term.</p>",
+    "requiredReading": "",
+    "short": undefined,
+  },
+  "number": "120",
+  "prerequisites": "BC Math 12 or equivalent is recommended.",
+  "requirements": undefined,
+  "schedule": Schedule [
+    SchedulePart {
+      "campus": "Burnaby",
+      "days": [
+        "Mo",
+      ],
+      "endDate": "Tue Dec 07 00:00:00 PST 2021",
+      "endTime": "Tue Dec 07 00:00:00 PST 2021",
+      "isExam": false,
+      "sectionCode": "LEC",
+      "startDate": "14:30",
+      "startTime": "14:30",
+    },
+    SchedulePart {
+      "campus": "Burnaby",
+      "days": [
+        "We",
+      ],
+      "endDate": "Tue Dec 07 00:00:00 PST 2021",
+      "endTime": "Tue Dec 07 00:00:00 PST 2021",
+      "isExam": false,
+      "sectionCode": "LEC",
+      "startDate": "14:30",
+      "startTime": "14:30",
+    },
+  ],
+  "section": "D100",
+  "specialTopic": "",
+  "term": "fall",
+  "termName": "Fall 2021",
+  "text": {
+    "recommended": undefined,
+    "required": [
+      {
+        "details": "<ul>
+<li>Think Python - How to Think Like a Computer Scientist: Interactive Edition https://runestone.academy/runestone/books/published/thinkcspy/index.html,</li>
+</ul>",
+      },
+    ],
+  },
+  "title": "Introduction to Computing Science and Programming I",
+  "type": "e",
+  "units": "3",
+  "year": 2021,
+}
+`;

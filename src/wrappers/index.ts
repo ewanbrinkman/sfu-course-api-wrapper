@@ -1,9 +1,19 @@
 import course from './course';
-import courses from './courses';
-import courseOffering from './courseOffering';
+import courseSection from './courseSection';
+import departmentCourseNumbers from './departmentCourseNumbers';
+import departmentCourses from './departmentCourses';
+import departmentNames from './departments';
+import departments from './departments';
+import years from './years';
+import terms from './terms';
 
 export default {
     course: course,
-    courses: courses,
-    courseOffering: courseOffering,
+    courseSection: courseSection,
+    departmentCourseNumbers: departmentCourseNumbers,
+    departmentCourses: departmentCourses,
+    departmentNames: departmentNames,
+    departments: departments,
+    terms: terms,
+    years: years,
 };

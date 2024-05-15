@@ -1,7 +1,11 @@
-export * from './courseBases';
-export * from './courseOfferings';
-export * from './courses';
-export * from './departmentCourses';
-export * from './instructors';
-export * from './requests';
-export * from './scheduleParts';
+export * from './response/Course';
+export * from './response/CourseBase';
+export * from './response/CourseSection';
+export * from './response/Department';
+export * from './response/Instructor';
+export * from './response/Schedule';
+export * from './response/SchedulePart';
+export { default as RawDepartmentCourse } from './response/RawDepartmentCourse';
+export { default as RawYear } from './response/RawYear';
+export { default as RawTerm } from './response/RawTerm';
+export * from './request/times';

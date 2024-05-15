@@ -2,7 +2,7 @@ import { requestSFUAcademicCalendarApiCourses } from '@utils';
 import type {
     CourseOutlinesYear,
     CourseOutlinesTerm,
-    RawApiCourse,
+    RawCourseData,
 } from '@api-types';
 import { Course } from '@api';
 
@@ -12,14 +12,13 @@ export default async function course(
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',
 ): Promise<Course> {
-    const rawApiCourse: RawApiCourse = (
-        await requestSFUAcademicCalendarApiCourses(
-            year,
-            term,
-            department,
-            number,
-        )
-    ).data;
+    const response = await requestSFUAcademicCalendarApiCourses(
+        year,
+        term.toLowerCase() as CourseOutlinesTerm,
+        department.toLowerCase(),
+        number.toLowerCase(),
+    );
+    const rawCourseData: RawCourseData = await response.json();
 
-    return Course.fromRawApiCourse(rawApiCourse, department, year, term);
+    return Course.fromRawCourseData(rawCourseData, year, term, department);
 }

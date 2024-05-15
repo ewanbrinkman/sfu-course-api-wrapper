@@ -10,10 +10,10 @@
 
 <br />
 <div align="center">
-  <h1 align="center">SFU API Wrapper</h1>
+  <h1 align="center">SFU Course API Wrapper</h1>
 
   <p align="center">
-    An asynchronous TypeScript wrapper for SFU's API.
+    An asynchronous TypeScript wrapper for SFU's course API.
     <br />
     <a href="#usage"><strong>Usage Examples</strong></a>
     ·
@@ -54,6 +54,10 @@ This project was made since there is no developed wrapper that I know of for
 SFU's API. The goal is to not simply return the JSON data from the API, but
 custom classes with useful methods.
 
+Also, this package has _zero_ runtime dependencies! The
+[package.json](package.json) file only has "devDependencies", and no
+"dependencies".
+
 **This project is not endorsed or supported by Simon Fraser University.**
 
 ## Getting Started
@@ -83,8 +87,10 @@ How to set up locally. This package is not currently published to npm.
     ```sh
     npm run build
     ```
-5. Go to the directory of your own project. Then, install `sfu-api-wrapper` in your own
-   project.
+5. Go to the directory of your own project. Then, install `sfu-api-wrapper` in
+   your own project as shown below. The path is the where the `sfu-api-folder`
+   is located, **NOT** the location of the `lib` folder created by
+   `npm run build` in step 4 above.
     ```sh
     npm install /path/to/local/sfu-api-wrapper/installed/package
     ```
@@ -93,7 +99,8 @@ How to set up locally. This package is not currently published to npm.
 
 Example usage of this API wrapper are shown below. For more detail, including
 all the properties each class has, see the
-<a href="https://ewanbrinkman.github.io/sfu-api-wrapper/">TypeDoc Documentation</a>.
+<a href="https://ewanbrinkman.github.io/sfu-api-wrapper/">TypeDoc
+Documentation</a>.
 
 Note that the API wrapper functions are the default export, while classes
 returned by the API wrapper functions and types used by this API wrapper are
@@ -101,33 +108,47 @@ named exports.
 
 ### Full Basic Example
 
+In a non-async environment:
+
 ```typescript
-import sfuApiWrapper, { CourseOffering } from '@sfu-wrappers/api';
+import courseApiWrapper from 'course-api-wrapper';
+
+courseApiWrapper
+    .courseSection('cmpt', '105w', 'd100', 2022, 'fall')
+    .then((courseSection) => {
+        console.log(courseSection);
+    });
+```
+
+In an async environment:
+
+```typescript
+import courseApiWrapper from 'course-api-wrapper';
 
 (async () => {
-    const courseOffering: CourseOffering = await sfuApiWrapper.courseOffering(
+    const courseSection = await courseApiWrapper.courseSection(
         'cmpt',
         '105w',
         'd100',
         2022,
         'fall',
     );
-    console.log(courseOffering);
+    console.log(courseSection);
 })();
 ```
 
 ### Wrapper Functions
 
-#### Get a course
+Get a course:
 
 ```typescript
-const course: Course = await sfuApiWrapper.course('cmpt', '120', 2021, 'fall');
+const course = await courseApiWrapper.course('cmpt', '120', 2021, 'fall');
 ```
 
-#### Get a course offering
+Get a course offering:
 
 ```typescript
-const courseOffering: CourseOffering = await sfuApiWrapper.courseOffering(
+const courseSection = await courseApiWrapper.courseSection(
     'cmpt',
     '120',
     'd100',
@@ -138,32 +159,32 @@ const courseOffering: CourseOffering = await sfuApiWrapper.courseOffering(
 
 ### Course Class
 
-For the examples, assume an instance of `Course` called `course` has been
-created.
+For the examples, assume an instance of class `Course` (found in
+[Course.ts](src/api/Course.ts)) called `course` has been created.
 
-#### Check if a course has a given section
+Check if a course has a given section:
 
 ```typescript
-const hasSection: boolean = await course.hasSection('d100');
+const hasSection = await course.hasSection('d100');
 ```
 
-#### Get a course offering section of a course
+Get a section of a course:
 
 ```typescript
-const courseOffering: CourseOffering = await course.getSection('d100');
+const courseSection = await course.getSection('d100');
 ```
 
-#### Get all course offering sections of a course
+Get all course offering sections of a course:
 
 ```typescript
-const courseOfferings: CourseOffering[] = await course.getSections();
+const courseSections = await course.getSections();
 ```
 
-#### Loop through all course offering sections of a course
+Loop through all course offering sections of a course:
 
 ```typescript
-for await (const courseOffering of course) {
-    console.log(courseOffering);
+for await (const courseSection of course) {
+    console.log(courseSection);
 }
 ```
 
@@ -182,17 +203,17 @@ Ewan Brinkman
 Project Link:
 [https://github.com/ewanbrinkman/sfu-api-wrapper](https://github.com/ewanbrinkman/sfu-api-wrapper)
 
-
 ## Acknowledgments
 
-- SFU's Course Outlines REST API documentation
-    - https://www.sfu.ca/outlines/help/api.html
+-   SFU's Course Outlines REST API documentation
+    -   https://www.sfu.ca/outlines/help/api.html
 
 <!-- Markdown links and images -->
 
 [contributors-shield]:
     https://img.shields.io/github/contributors/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
-[contributors-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/graphs/contributors
+[contributors-url]:
+    https://github.com/ewanbrinkman/sfu-api-wrapper/graphs/contributors
 [forks-shield]:
     https://img.shields.io/github/forks/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
 [forks-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/network/members

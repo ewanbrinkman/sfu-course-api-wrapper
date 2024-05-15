@@ -1,6 +1,5 @@
 import apiConfig from '@config/api.json';
 import type { CourseOutlinesYear, CourseOutlinesTerm } from '@api-types';
-import axios, { AxiosResponse } from 'axios';
 
 function generateURLForSFUApi(
     baseUrl: string,
@@ -11,19 +10,31 @@ function generateURLForSFUApi(
 
 type requestSFUApiFunction = (
     ...parameters: (number | string)[]
-) => Promise<AxiosResponse>;
+) => Promise<Response>;
 
 function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
-    return async (
-        ...parameters: (number | string)[]
-    ): Promise<AxiosResponse> => {
+    return async (...parameters: (number | string)[]): Promise<Response> => {
         const url = generateURLForSFUApi(baseUrl, ...parameters);
-        try {
-            return await axios.get(url);
-        } catch (error) {
-            console.error(`SFU API request failed for: ${url}`);
-            throw error;
+        for (let i = 0; i < apiConfig.requestRetry.maxAttempts; i++) {
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    return response;
+                }
+            } catch (error) {}
+
+            // console.error(`SFU API request failed for: ${url}, retrying...`);
+
+            if (i !== apiConfig.requestRetry.maxAttempts - 1) {
+                await new Promise((resolve) =>
+                    setTimeout(resolve, apiConfig.requestRetry.delay),
+                );
+            }
         }
+
+        throw new Error(
+            `Retry limit (${apiConfig.requestRetry.maxAttempts}) reached for: ${url}`,
+        );
     };
 }
 
@@ -38,7 +49,7 @@ type requestSFUAcademicCalendarApiSectionFunction = (
     year: CourseOutlinesYear,
     term: CourseOutlinesTerm,
     ...parameters: (number | string)[]
-) => Promise<AxiosResponse>;
+) => Promise<Response>;
 
 function generateRequestSFUAcademicCalendarApiSectionFunction(
     section: string,
@@ -47,7 +58,7 @@ function generateRequestSFUAcademicCalendarApiSectionFunction(
         year: CourseOutlinesYear = 'current',
         term: CourseOutlinesTerm = 'current',
         ...parameters: (number | string)[]
-    ): Promise<AxiosResponse> => {
+    ): Promise<Response> => {
         return await requestSFUAcademicCalendarApi(
             year,
             term,

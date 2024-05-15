@@ -1,5 +1,4 @@
 {
-    "concurrencyLimit": 1,
     "endpoints": {
         "courseOutlines": {
             "baseUrl": "https://www.sfu.ca/bin/wcm/course-outlines"
@@ -10,5 +9,9 @@
             "courses": "courses",
             "programs": "programs"
         }
+    },
+    "requestRetry": {
+        "maxAttempts": 5,
+        "delay": 1000
     }
 }
