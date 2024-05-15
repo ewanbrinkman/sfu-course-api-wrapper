@@ -1,4 +1,10 @@
-import { RawInstructorData, GradingScheme, Textbook, RawScheduleData, RawCourseSectionInfo } from "@api-types";
+import {
+    RawInstructorData,
+    GradingScheme,
+    Textbook,
+    RawScheduleData,
+    RawCourseSectionInfo,
+} from '@api-types';
 
 interface RawCourseSectionData {
     info: RawCourseSectionInfo;

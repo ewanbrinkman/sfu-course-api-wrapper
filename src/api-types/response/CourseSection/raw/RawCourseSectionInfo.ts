@@ -1,4 +1,9 @@
-import { RawCourseBaseData, DeliveryMethod, Enrollment, DegreeLevel } from "@api-types";
+import {
+    RawCourseBaseData,
+    DeliveryMethod,
+    Enrollment,
+    DegreeLevel,
+} from '@api-types';
 
 interface RawCourseSectionInfo extends RawCourseBaseData {
     educationalGoals: string;

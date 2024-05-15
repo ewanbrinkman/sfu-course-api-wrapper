@@ -8,7 +8,11 @@ import type {
     CourseSectionNotes,
     CourseOutlinesYear,
 } from '@api-types';
-import { processRawInstructorData, processRawSchedulePartData, processRawCourseBaseData } from '@utils';
+import {
+    processRawInstructorData,
+    processRawSchedulePartData,
+    processRawCourseBaseData,
+} from '@utils';
 
 function processRawCourseSectionData(
     rawCourseSectionData: RawCourseSectionData,
@@ -17,16 +21,20 @@ function processRawCourseSectionData(
     department: string,
 ): CourseSectionData {
     const instructors: InstructorData[] = rawCourseSectionData.instructor.map(
-        (rawInstructorData) =>
-            processRawInstructorData(rawInstructorData),
+        (rawInstructorData) => processRawInstructorData(rawInstructorData),
     );
     const schedule: SchedulePartData[] =
         rawCourseSectionData.courseSchedule.map((rawSchedulePartData) =>
             processRawSchedulePartData(rawSchedulePartData),
         );
-    
+
     const rawCourseBaseData: RawCourseBaseData = rawCourseSectionData.info;
-    const courseBaseData = processRawCourseBaseData(rawCourseBaseData, year, term, department);
+    const courseBaseData = processRawCourseBaseData(
+        rawCourseBaseData,
+        year,
+        term,
+        department,
+    );
 
     const courseSectionNotes: CourseSectionNotes = {
         ...courseBaseData.notes,
@@ -36,8 +44,8 @@ function processRawCourseSectionData(
         departmentalUndergraduateNotes:
             rawCourseSectionData.info.departmentalUgradNotes,
         short: rawCourseSectionData.info.shortNote,
-    }
-    
+    };
+
     const courseSectionData: CourseSectionData = {
         ...courseBaseData,
         name: rawCourseSectionData.info.name,

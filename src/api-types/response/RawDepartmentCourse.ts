@@ -1,7 +1,6 @@
 interface RawDepartmentCourse {
-    // text: string;
-    value: string;
     title: string;
+    value: string;
 }
 
 export default RawDepartmentCourse;

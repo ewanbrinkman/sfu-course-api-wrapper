@@ -1,4 +1,4 @@
-import { requestSFUAcademicCalendarApi } from '@utils';
+import { requestSFUCourseOutlinesApi } from '@utils';
 
 type YearValue = {
     value: number;
@@ -6,12 +6,9 @@ type YearValue = {
 
 type YearValues = YearValue[];
 
-export default async function years(
-): Promise<number[]> {
-    const response = (
-        await requestSFUAcademicCalendarApi()
-    );
+export default async function years(): Promise<number[]> {
+    const response = await requestSFUCourseOutlinesApi();
     const rawYears: YearValues = await response.json();
 
-    return rawYears.map(rawYear => rawYear.value);
+    return rawYears.map((rawYear) => rawYear.value);
 }

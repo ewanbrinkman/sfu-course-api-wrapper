@@ -21,9 +21,7 @@ export default class CourseBase implements CourseBaseData {
     term: CourseOutlinesTerm;
     department: string;
 
-    constructor(
-        courseBaseData: CourseBaseData,
-    ) {
+    constructor(courseBaseData: CourseBaseData) {
         this.title = courseBaseData.title;
         this.description = courseBaseData.description;
         this.corequisites = courseBaseData.corequisites;
@@ -44,7 +42,12 @@ export default class CourseBase implements CourseBaseData {
         term: CourseOutlinesTerm,
         department: string,
     ): CourseBase {
-        const courseBaseData = processRawCourseBaseData(rawCourseBaseData, year, term, department);
+        const courseBaseData = processRawCourseBaseData(
+            rawCourseBaseData,
+            year,
+            term,
+            department,
+        );
 
         return new CourseBase(courseBaseData);
     }

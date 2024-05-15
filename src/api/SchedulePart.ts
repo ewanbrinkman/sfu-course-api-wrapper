@@ -31,7 +31,8 @@ export default class SchedulePart implements SchedulePartData {
     static fromRawSchedulePartData(
         rawSchedulePartData: RawSchedulePartData,
     ): SchedulePart {
-        const schedulePartData = processRawSchedulePartData(rawSchedulePartData);
+        const schedulePartData =
+            processRawSchedulePartData(rawSchedulePartData);
 
         return new SchedulePart(schedulePartData);
     }

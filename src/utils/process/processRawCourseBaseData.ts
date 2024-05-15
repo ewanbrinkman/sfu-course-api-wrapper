@@ -14,7 +14,7 @@ function processRawCourseBaseData(
 ): CourseBaseData {
     const courseBaseNotes: CourseBaseNotes = {
         general: rawCourseBaseData.notes,
-    }
+    };
 
     const courseBaseData: CourseBaseData = {
         title: rawCourseBaseData.title,
@@ -25,11 +25,11 @@ function processRawCourseBaseData(
         notes: courseBaseNotes,
         units: rawCourseBaseData.units,
         designation: rawCourseBaseData.designation,
-    
+
         year: year,
         term: term,
         department: department,
-    }
+    };
 
     return courseBaseData;
 }

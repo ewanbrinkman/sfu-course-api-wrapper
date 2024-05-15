@@ -13,9 +13,7 @@ type requestSFUApiFunction = (
 ) => Promise<Response>;
 
 function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
-    return async (
-        ...parameters: (number | string)[]
-    ): Promise<Response> => {
+    return async (...parameters: (number | string)[]): Promise<Response> => {
         const url = generateURLForSFUApi(baseUrl, ...parameters);
         for (let i = 0; i < apiConfig.requestRetry.maxAttempts; i++) {
             try {
@@ -23,16 +21,20 @@ function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
                 if (response.ok) {
                     return response;
                 }
-            } catch (error) {
-                console.error(`SFU API request failed for: ${url}, retrying...`);
-            }
+            } catch (error) {}
+
+            // console.error(`SFU API request failed for: ${url}, retrying...`);
 
             if (i !== apiConfig.requestRetry.maxAttempts - 1) {
-                await new Promise(resolve => setTimeout(resolve, apiConfig.requestRetry.delay));
+                await new Promise((resolve) =>
+                    setTimeout(resolve, apiConfig.requestRetry.delay),
+                );
             }
         }
 
-        throw new Error(`Retry limit (${apiConfig.requestRetry.maxAttempts}) reached for: ${url}`);
+        throw new Error(
+            `Retry limit (${apiConfig.requestRetry.maxAttempts}) reached for: ${url}`,
+        );
     };
 }
 

@@ -1,9 +1,10 @@
-import { requestSFUAcademicCalendarApiCourses } from '@utils';
+import { requestSFUCourseOutlinesApi } from '@utils';
 import { CourseOutlinesTerm, CourseOutlinesYear } from '@api-types';
 
 type DepartmentValue = {
-    title: string;
+    text: string;
     value: string;
+    name: string;
 };
 
 type DepartmentValues = DepartmentValue[];
@@ -12,10 +13,10 @@ export default async function departments(
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',
 ): Promise<string[]> {
-    const response = (
-        await requestSFUAcademicCalendarApiCourses(year, term)
-    );
+    const response = await requestSFUCourseOutlinesApi(year, term);
     const rawDepartments: DepartmentValues = await response.json();
 
-    return rawDepartments.map(rawDepartment => rawDepartment.value);
+    console.log(rawDepartments);
+
+    return rawDepartments.map((rawDepartment) => rawDepartment.name);
 }

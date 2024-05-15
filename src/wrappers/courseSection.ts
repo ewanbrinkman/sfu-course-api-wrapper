@@ -13,16 +13,19 @@ export default async function courseSection(
     year: CourseOutlinesYear = 'current',
     term: CourseOutlinesTerm = 'current',
 ): Promise<CourseSection> {
-    const response = (
-        await requestSFUCourseOutlinesApi(
-            year,
-            term,
-            department,
-            number,
-            section,
-        )
+    const response = await requestSFUCourseOutlinesApi(
+        year,
+        term.toLowerCase(),
+        department.toLowerCase(),
+        number.toLowerCase(),
+        section.toLowerCase(),
     );
     const rawCourseSectionData: RawCourseSectionData = await response.json();
 
-    return CourseSection.fromRawCourseSectionData(rawCourseSectionData, year, term, department);
+    return CourseSection.fromRawCourseSectionData(
+        rawCourseSectionData,
+        year,
+        term,
+        department,
+    );
 }

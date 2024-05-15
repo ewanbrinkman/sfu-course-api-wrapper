@@ -1,3 +1,3 @@
 export * from './requests';
-export * from './limitConcurrency';
+export * from './processAllRequests';
 export * from './process';

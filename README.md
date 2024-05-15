@@ -10,10 +10,10 @@
 
 <br />
 <div align="center">
-  <h1 align="center">SFU API Wrapper</h1>
+  <h1 align="center">SFU Course API Wrapper</h1>
 
   <p align="center">
-    An asynchronous TypeScript wrapper for SFU's API.
+    An asynchronous TypeScript wrapper for SFU's course API.
     <br />
     <a href="#usage"><strong>Usage Examples</strong></a>
     ·
@@ -148,7 +148,7 @@ const course = await courseApiWrapper.course('cmpt', '120', 2021, 'fall');
 Get a course offering:
 
 ```typescript
-const courseSection = await sfuApiWrapper.courseSection(
+const courseSection = await courseApiWrapper.courseSection(
     'cmpt',
     '120',
     'd100',

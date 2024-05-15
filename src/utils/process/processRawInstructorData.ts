@@ -1,7 +1,4 @@
-import type {
-    InstructorData,
-    RawInstructorData,
-} from '@api-types';
+import type { InstructorData, RawInstructorData } from '@api-types';
 
 function processRawInstructorData(
     rawInstructorData: RawInstructorData,

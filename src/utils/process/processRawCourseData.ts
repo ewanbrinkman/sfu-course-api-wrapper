@@ -25,9 +25,14 @@ function processRawCourseData(
                 associatedCourse: rawCourseSectionSummary.associatedClass,
             };
         });
-    
+
     const rawCourseBaseData: RawCourseBaseData = rawCourseData;
-    const courseBaseData = processRawCourseBaseData(rawCourseBaseData, year, term, department);
+    const courseBaseData = processRawCourseBaseData(
+        rawCourseBaseData,
+        year,
+        term,
+        department,
+    );
 
     const courseData: CourseData = {
         ...courseBaseData,

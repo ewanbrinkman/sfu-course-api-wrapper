@@ -1,7 +1,4 @@
-import type {
-    SchedulePartData,
-    RawSchedulePartData,
-} from '@api-types';
+import type { SchedulePartData, RawSchedulePartData } from '@api-types';
 import { processStringDays } from '@utils';
 
 function processRawSchedulePartData(

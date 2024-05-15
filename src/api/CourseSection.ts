@@ -15,7 +15,10 @@ import { Instructor, Schedule } from '@api';
 import CourseBase from '@api/CourseBase';
 import { processRawCourseSectionData } from '@utils';
 
-export default class CourseSection extends CourseBase implements CourseSectionData {
+export default class CourseSection
+    extends CourseBase
+    implements CourseSectionData
+{
     name: string;
     departmentName: string;
     section: string;
@@ -54,9 +57,11 @@ export default class CourseSection extends CourseBase implements CourseSectionDa
         this.requirements = courseSectionData.requirements;
         this.educationalGoals = courseSectionData.educationalGoals;
         this.specialTopic = courseSectionData.specialTopic;
-        this.instructors = courseSectionData.instructors.map(instructorData => {
-            return new Instructor(instructorData);
-        });
+        this.instructors = courseSectionData.instructors.map(
+            (instructorData) => {
+                return new Instructor(instructorData);
+            },
+        );
         this.deliveryMethod = courseSectionData.deliveryMethod;
         this.termName = courseSectionData.termName;
         this.schedule = new Schedule(courseSectionData.schedule);
@@ -73,8 +78,13 @@ export default class CourseSection extends CourseBase implements CourseSectionDa
         term: CourseOutlinesTerm,
         department: string,
     ): CourseSection {
-        const courseSectionData = processRawCourseSectionData(rawCourseSectionData, year, term, department);
-       
+        const courseSectionData = processRawCourseSectionData(
+            rawCourseSectionData,
+            year,
+            term,
+            department,
+        );
+
         return new CourseSection(courseSectionData);
     }
 

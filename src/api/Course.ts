@@ -39,8 +39,13 @@ export default class Course extends CourseBase implements CourseData {
         term: CourseOutlinesTerm,
         department: string,
     ): Course {
-        const courseData = processRawCourseData(rawCourseData, year, term, department);
-        
+        const courseData = processRawCourseData(
+            rawCourseData,
+            year,
+            term,
+            department,
+        );
+
         return new Course(courseData);
     }
 
@@ -50,6 +55,10 @@ export default class Course extends CourseBase implements CourseData {
 
     public get hasSections(): boolean {
         return Object.keys(this.courseSections).length >= 1;
+    }
+
+    public get sectionNumbers(): string[] {
+        return Object.keys(this.courseSections);
     }
 
     public async getSection(section: string): Promise<CourseSection> {

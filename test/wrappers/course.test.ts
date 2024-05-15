@@ -8,8 +8,7 @@ describe('course', () => {
     });
     test('get course section', async () => {
         const course = await wrappers.course('cmpt', '125', 2022, 'fall');
-        const courseSection =
-            await course.getSection('d100');
+        const courseSection = await course.getSection('d100');
 
         expect(courseSection).toMatchSnapshot();
     });
