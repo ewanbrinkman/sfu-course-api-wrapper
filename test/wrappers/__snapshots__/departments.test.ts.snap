@@ -1,0 +1,346 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`departments request departments 1`] = `
+[
+  Department {
+    "id": "acma",
+    "name": "Actuarial Mathematics",
+  },
+  Department {
+    "id": "als",
+    "name": "Applied Legal Studies",
+  },
+  Department {
+    "id": "apma",
+    "name": "Applied Mathematics",
+  },
+  Department {
+    "id": "arab",
+    "name": "Arabic",
+  },
+  Department {
+    "id": "arch",
+    "name": "Archaeology",
+  },
+  Department {
+    "id": "bisc",
+    "name": "Biological Sciences",
+  },
+  Department {
+    "id": "bpk",
+    "name": "Biomedical Physiology and Kinesiology",
+  },
+  Department {
+    "id": "bus",
+    "name": "Business Administration",
+  },
+  Department {
+    "id": "ca",
+    "name": "Contemporary Arts",
+  },
+  Department {
+    "id": "chem",
+    "name": "Chemistry",
+  },
+  Department {
+    "id": "chin",
+    "name": "Chinese",
+  },
+  Department {
+    "id": "cmns",
+    "name": "Communication",
+  },
+  Department {
+    "id": "cmpt",
+    "name": "Computing Science",
+  },
+  Department {
+    "id": "cogs",
+    "name": "Cognitive Science",
+  },
+  Department {
+    "id": "crim",
+    "name": "Criminology",
+  },
+  Department {
+    "id": "data",
+    "name": "Data Science",
+  },
+  Department {
+    "id": "dial",
+    "name": "Dialogue",
+  },
+  Department {
+    "id": "dmed",
+    "name": "Digital Media",
+  },
+  Department {
+    "id": "easc",
+    "name": "Earth Sciences",
+  },
+  Department {
+    "id": "eco",
+    "name": "Ecological Restoration",
+  },
+  Department {
+    "id": "econ",
+    "name": "Economics",
+  },
+  Department {
+    "id": "edpr",
+    "name": "Education Professional",
+  },
+  Department {
+    "id": "educ",
+    "name": "Education",
+  },
+  Department {
+    "id": "engl",
+    "name": "English",
+  },
+  Department {
+    "id": "ensc",
+    "name": "Engineering Science",
+  },
+  Department {
+    "id": "env",
+    "name": "Environment",
+  },
+  Department {
+    "id": "etec",
+    "name": "Educational Technology and Learning",
+  },
+  Department {
+    "id": "evsc",
+    "name": "Environmental Science",
+  },
+  Department {
+    "id": "fal",
+    "name": "Foundations of Academic Literacy",
+  },
+  Department {
+    "id": "fan",
+    "name": "Foundations of Analytical and Quantitative Reasoning",
+  },
+  Department {
+    "id": "fass",
+    "name": "Faculty of Arts and Social Sciences",
+  },
+  Department {
+    "id": "fren",
+    "name": "French",
+  },
+  Department {
+    "id": "ga",
+    "name": "Global Asia",
+  },
+  Department {
+    "id": "geog",
+    "name": "Geography",
+  },
+  Department {
+    "id": "germ",
+    "name": "German",
+  },
+  Department {
+    "id": "gero",
+    "name": "Gerontology",
+  },
+  Department {
+    "id": "grk",
+    "name": "Greek",
+  },
+  Department {
+    "id": "gs",
+    "name": "General Studies",
+  },
+  Department {
+    "id": "gsws",
+    "name": "Gender, Sexuality, and Women's Studies",
+  },
+  Department {
+    "id": "hist",
+    "name": "History",
+  },
+  Department {
+    "id": "hsci",
+    "name": "Health Sciences",
+  },
+  Department {
+    "id": "hum",
+    "name": "Global Humanities",
+  },
+  Department {
+    "id": "iat",
+    "name": "Interactive Arts and Technology",
+  },
+  Department {
+    "id": "indg",
+    "name": "Indigenous Studies",
+  },
+  Department {
+    "id": "inlg",
+    "name": "Indigenous Languages",
+  },
+  Department {
+    "id": "ins",
+    "name": "Individualized Interdisciplinary Studies",
+  },
+  Department {
+    "id": "is",
+    "name": "International Studies",
+  },
+  Department {
+    "id": "ital",
+    "name": "Italian",
+  },
+  Department {
+    "id": "japn",
+    "name": "Japanese",
+  },
+  Department {
+    "id": "lang",
+    "name": "Language",
+  },
+  Department {
+    "id": "las",
+    "name": "Latin American Studies",
+  },
+  Department {
+    "id": "lbrl",
+    "name": "Liberal Arts",
+  },
+  Department {
+    "id": "lbst",
+    "name": "Labour Studies",
+  },
+  Department {
+    "id": "ling",
+    "name": "Linguistics",
+  },
+  Department {
+    "id": "ls",
+    "name": "Liberal Studies",
+  },
+  Department {
+    "id": "macm",
+    "name": "Mathematics and Computing Science",
+  },
+  Department {
+    "id": "masc",
+    "name": "Marine Science",
+  },
+  Department {
+    "id": "math",
+    "name": "Mathematics",
+  },
+  Department {
+    "id": "mbb",
+    "name": "Molecular Biology and Biochemistry",
+  },
+  Department {
+    "id": "mse",
+    "name": "Mechatronic Systems Engineering",
+  },
+  Department {
+    "id": "mtec",
+    "name": "Management and Technology",
+  },
+  Department {
+    "id": "neur",
+    "name": "Neuroscience",
+  },
+  Department {
+    "id": "nusc",
+    "name": "Nuclear Science",
+  },
+  Department {
+    "id": "onc",
+    "name": "Oncology",
+  },
+  Department {
+    "id": "pers",
+    "name": "Persian",
+  },
+  Department {
+    "id": "phil",
+    "name": "Philosophy",
+  },
+  Department {
+    "id": "phys",
+    "name": "Physics",
+  },
+  Department {
+    "id": "plan",
+    "name": "Planning",
+  },
+  Department {
+    "id": "plcy",
+    "name": "Public Policy",
+  },
+  Department {
+    "id": "pol",
+    "name": "Political Science",
+  },
+  Department {
+    "id": "psyc",
+    "name": "Psychology",
+  },
+  Department {
+    "id": "pub",
+    "name": "Publishing",
+  },
+  Department {
+    "id": "punj",
+    "name": "Punjabi",
+  },
+  Department {
+    "id": "rem",
+    "name": "Resource and Environmental Management",
+  },
+  Department {
+    "id": "sa",
+    "name": "Sociology and Anthropology",
+  },
+  Department {
+    "id": "sci",
+    "name": "Science",
+  },
+  Department {
+    "id": "sd",
+    "name": "Sustainable Development",
+  },
+  Department {
+    "id": "sda",
+    "name": "Social Data Analytics",
+  },
+  Department {
+    "id": "see",
+    "name": "Sustainable Energy Engineering",
+  },
+  Department {
+    "id": "span",
+    "name": "Spanish",
+  },
+  Department {
+    "id": "stat",
+    "name": "Statistics",
+  },
+  Department {
+    "id": "tekx",
+    "name": "Technology - FAS",
+  },
+  Department {
+    "id": "trss",
+    "name": "Terrorism, Risk and Security Studies",
+  },
+  Department {
+    "id": "urb",
+    "name": "Urban Studies",
+  },
+  Department {
+    "id": "wl",
+    "name": "World Literature",
+  },
+]
+`;

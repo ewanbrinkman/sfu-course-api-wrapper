@@ -11,7 +11,7 @@
         }
     },
     "requestRetry": {
-        "maxAttempts": 3,
-        "delay": 100
+        "maxAttempts": 5,
+        "delay": 1000
     }
 }

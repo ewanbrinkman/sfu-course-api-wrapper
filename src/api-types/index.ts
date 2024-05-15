@@ -1,6 +1,7 @@
 export * from './response/Course';
 export * from './response/CourseBase';
 export * from './response/CourseSection';
+export * from './response/Department';
 export * from './response/Instructor';
 export * from './response/Schedule';
 export * from './response/SchedulePart';

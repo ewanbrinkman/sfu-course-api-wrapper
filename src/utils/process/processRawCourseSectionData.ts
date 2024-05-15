@@ -20,9 +20,12 @@ function processRawCourseSectionData(
     term: CourseOutlinesTerm,
     department: string,
 ): CourseSectionData {
-    const instructors: InstructorData[] = rawCourseSectionData.instructor.map(
-        (rawInstructorData) => processRawInstructorData(rawInstructorData),
-    );
+    // It is possible for there to be no "instructor" field.
+    const instructors: InstructorData[] = rawCourseSectionData.instructor
+        ? rawCourseSectionData.instructor.map((rawInstructorData) =>
+              processRawInstructorData(rawInstructorData),
+          )
+        : [];
     const schedule: SchedulePartData[] =
         rawCourseSectionData.courseSchedule.map((rawSchedulePartData) =>
             processRawSchedulePartData(rawSchedulePartData),
