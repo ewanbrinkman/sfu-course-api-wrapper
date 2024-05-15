@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`course request cmpt courses 1`] = `
+exports[`departmentCourses request arch courses 1`] = `
 [
   Course {
     "corequisites": "",

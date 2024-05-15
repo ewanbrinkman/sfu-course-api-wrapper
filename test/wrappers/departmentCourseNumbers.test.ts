@@ -1,7 +1,7 @@
 import wrappers from '../../src/wrappers';
 
-describe('course', () => {
-    test('request cmpt courses', async () => {
+describe('departmentCourseNumbers', () => {
+    test('request arch course numbers', async () => {
         const departmentCourseNumbers = await wrappers.departmentCourseNumbers(
             'arch',
             2023,

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`course request cmpt courses 1`] = `
+exports[`departmentCourseNumbers request arch course numbers 1`] = `
 [
   "100",
   "101",

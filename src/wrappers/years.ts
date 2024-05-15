@@ -1,14 +1,9 @@
 import { requestSFUCourseOutlinesApi } from '@utils';
-
-type YearValue = {
-    value: number;
-};
-
-type YearValues = YearValue[];
+import { RawYear } from '@api-types';
 
 export default async function years(): Promise<number[]> {
     const response = await requestSFUCourseOutlinesApi();
-    const rawYears: YearValues = await response.json();
+    const rawYears: RawYear[] = await response.json();
 
     return rawYears.map((rawYear) => rawYear.value);
 }

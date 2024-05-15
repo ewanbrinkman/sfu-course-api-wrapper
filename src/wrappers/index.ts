@@ -12,6 +12,6 @@ export default {
     departmentCourseNumbers: departmentCourseNumbers,
     departmentCourses: departmentCourses,
     departmentNames: departmentNames,
-    years: years,
     terms: terms,
+    years: years,
 };

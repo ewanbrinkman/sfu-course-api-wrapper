@@ -5,4 +5,6 @@ export * from './response/Instructor';
 export * from './response/Schedule';
 export * from './response/SchedulePart';
 export { default as RawDepartmentCourse } from './response/RawDepartmentCourse';
+export { default as RawYear } from './response/RawYear';
+export { default as RawTerm } from './response/RawTerm';
 export * from './request/times';
