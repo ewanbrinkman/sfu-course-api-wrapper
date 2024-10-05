@@ -13,4 +13,5 @@ export default {
     transform: {
         '.ts$': ['ts-jest', { tsconfig: './tsconfig.test.json' }],
     },
+    modulePathIgnorePatterns: ['<rootDir>/docs/'],
 };
