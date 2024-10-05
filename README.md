@@ -17,12 +17,12 @@
     <br />
     <a href="#usage"><strong>Usage Examples</strong></a>
     ·
-    <a href="https://ewanbrinkman.github.io/sfu-api-wrapper/"><strong>TypeDoc Documentation</strong></a>
+    <a href="https://ewanbrinkman.github.io/sfu-course-api-wrapper/"><strong>TypeDoc Documentation</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ewanbrinkman/sfu-api-wrapper/issues">Report Bug</a>
+    <a href="https://github.com/ewanbrinkman/sfu-course-api-wrapper/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ewanbrinkman/sfu-api-wrapper/issues">Request Feature</a>
+    <a href="https://github.com/ewanbrinkman/sfu-course-api-wrapper/issues">Request Feature</a>
   </p>
 </div>
 
@@ -73,11 +73,11 @@ How to set up locally. This package is not currently published to npm.
 
 1. Clone this repository.
     ```sh
-    git clone https://github.com/ewanbrinkman/sfu-api-wrapper.git
+    git clone https://github.com/ewanbrinkman/sfu-course-api-wrapper.git
     ```
-2. Go to the directory of `sfu-api-wrapper`.
+2. Go to the directory of `sfu-course-api-wrapper`.
     ```sh
-    cd sfu-api-wrapper
+    cd sfu-course-api-wrapper
     ```
 3. Install NPM packages.
     ```sh
@@ -87,19 +87,19 @@ How to set up locally. This package is not currently published to npm.
     ```sh
     npm run build
     ```
-5. Go to the directory of your own project. Then, install `sfu-api-wrapper` in
-   your own project as shown below. The path is the where the `sfu-api-folder`
-   is located, **NOT** the location of the `lib` folder created by
-   `npm run build` in step 4 above.
+5. Go to the directory of your own project. Then, install
+   `sfu-course-api-wrapper` in your own project as shown below. The path is the
+   where the `sfu-api-folder` is located, **NOT** the location of the `lib`
+   folder created by `npm run build` in step 4 above.
     ```sh
-    npm install /path/to/local/sfu-api-wrapper/installed/package
+    npm install /path/to/local/sfu-course-api-wrapper/installed/package
     ```
 
 ## Usage
 
 Example usage of this API wrapper are shown below. For more detail, including
 all the properties each class has, see the
-<a href="https://ewanbrinkman.github.io/sfu-api-wrapper/">TypeDoc
+<a href="https://ewanbrinkman.github.io/sfu-course-api-wrapper/">TypeDoc
 Documentation</a>.
 
 Note that the API wrapper functions are the default export, while classes
@@ -114,7 +114,7 @@ In a non-async environment:
 import courseApiWrapper from 'course-api-wrapper';
 
 courseApiWrapper
-    .courseSection('cmpt', '105w', 'd100', 2022, 'fall')
+    .courseSection('cmpt', '120', 'd100', 2021, 'fall')
     .then((courseSection) => {
         console.log(courseSection);
     });
@@ -201,7 +201,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Ewan Brinkman
 
 Project Link:
-[https://github.com/ewanbrinkman/sfu-api-wrapper](https://github.com/ewanbrinkman/sfu-api-wrapper)
+[https://github.com/ewanbrinkman/sfu-course-api-wrapper](https://github.com/ewanbrinkman/sfu-course-api-wrapper)
 
 ## Acknowledgments
 
@@ -211,21 +211,23 @@ Project Link:
 <!-- Markdown links and images -->
 
 [contributors-shield]:
-    https://img.shields.io/github/contributors/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
+    https://img.shields.io/github/contributors/ewanbrinkman/sfu-course-api-wrapper.svg?style=for-the-badge
 [contributors-url]:
-    https://github.com/ewanbrinkman/sfu-api-wrapper/graphs/contributors
+    https://github.com/ewanbrinkman/sfu-course-api-wrapper/graphs/contributors
 [forks-shield]:
-    https://img.shields.io/github/forks/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
-[forks-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/network/members
+    https://img.shields.io/github/forks/ewanbrinkman/sfu-course-api-wrapper.svg?style=for-the-badge
+[forks-url]:
+    https://github.com/ewanbrinkman/sfu-course-api-wrapper/network/members
 [stars-shield]:
-    https://img.shields.io/github/stars/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
-[stars-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/stargazers
+    https://img.shields.io/github/stars/ewanbrinkman/sfu-course-api-wrapper.svg?style=for-the-badge
+[stars-url]: https://github.com/ewanbrinkman/sfu-course-api-wrapper/stargazers
 [issues-shield]:
-    https://img.shields.io/github/issues/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
-[issues-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/issues
+    https://img.shields.io/github/issues/ewanbrinkman/sfu-course-api-wrapper.svg?style=for-the-badge
+[issues-url]: https://github.com/ewanbrinkman/sfu-course-api-wrapper/issues
 [license-shield]:
-    https://img.shields.io/github/license/ewanbrinkman/sfu-api-wrapper.svg?style=for-the-badge
-[license-url]: https://github.com/ewanbrinkman/sfu-api-wrapper/blob/main/LICENSE
+    https://img.shields.io/github/license/ewanbrinkman/sfu-course-api-wrapper.svg?style=for-the-badge
+[license-url]:
+    https://github.com/ewanbrinkman/sfu-course-api-wrapper/blob/main/LICENSE
 [linkedin-shield]:
     https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/ewan-brinkman
