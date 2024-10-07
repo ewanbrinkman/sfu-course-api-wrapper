@@ -1,7 +1,4 @@
-import type {
-    RawDepartmentData,
-    DepartmentData,
-} from '@api-types';
+import type { RawDepartmentData, DepartmentData } from '@api-types';
 import { processRawDepartmentData } from '@utils';
 
 export default class Department implements DepartmentData {

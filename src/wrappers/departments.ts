@@ -1,5 +1,9 @@
 import { requestSFUAcademicCalendarApiCourses } from '@utils';
-import { CourseOutlinesTerm, CourseOutlinesYear, RawDepartmentData } from '@api-types';
+import {
+    CourseOutlinesTerm,
+    CourseOutlinesYear,
+    RawDepartmentData,
+} from '@api-types';
 import { Department } from '@api';
 
 export default async function departments(
@@ -9,5 +13,7 @@ export default async function departments(
     const response = await requestSFUAcademicCalendarApiCourses(year, term);
     const rawDepartmentData: RawDepartmentData[] = await response.json();
 
-    return rawDepartmentData.map((rawDepartmentDataEntry) => Department.fromRawDepartmentData(rawDepartmentDataEntry));
+    return rawDepartmentData.map((rawDepartmentDataEntry) =>
+        Department.fromRawDepartmentData(rawDepartmentDataEntry),
+    );
 }
