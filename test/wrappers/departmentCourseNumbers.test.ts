@@ -1,4 +1,5 @@
 import wrappers from '../../src/wrappers';
+import { EmptyResponseError } from '../../src/errors';
 
 describe('departmentCourseNumbers', () => {
     test('request arch course numbers', async () => {
@@ -16,5 +17,10 @@ describe('departmentCourseNumbers', () => {
         });
 
         expect(departmentCourseNumbers).toMatchSnapshot();
+    }, 30000);
+    test('request course numbers for department that does not exist', async () => {
+        await expect(
+            wrappers.departmentCourseNumbers('asdf', 2023, 'fall'),
+        ).rejects.toThrow(EmptyResponseError);
     }, 30000);
 });

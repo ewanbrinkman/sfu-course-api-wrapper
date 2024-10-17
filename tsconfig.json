@@ -15,7 +15,8 @@
             "@api-types": ["./api-types"],
             "@api": ["./api"],
             "@api/*": ["./api/*"],
-            "@config/*": ["./config/*"]
+            "@config/*": ["./config/*"],
+            "@errors": ["./errors"]
         },
         "plugins": [
             {

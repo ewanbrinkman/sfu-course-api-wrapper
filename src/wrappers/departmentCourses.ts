@@ -1,7 +1,4 @@
-import {
-    requestSFUAcademicCalendarApiCourses,
-    processAllRequests,
-} from '@utils';
+import { processAllRequests } from '@utils';
 import type { CourseOutlinesYear, CourseOutlinesTerm } from '@api-types';
 import { Course } from '@api';
 import wrappers from '@wrappers';
