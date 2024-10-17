@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`departments request department that exists 1`] = `
+Department {
+  "id": "cmpt",
+  "name": "Computing Science",
+}
+`;

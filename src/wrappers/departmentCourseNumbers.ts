@@ -4,6 +4,7 @@ import type {
     CourseOutlinesTerm,
     RawDepartmentCourse,
 } from '@api-types';
+import { EmptyResponseError } from '@errors';
 
 export default async function departmentCourseNumbers(
     department: string,
@@ -16,6 +17,10 @@ export default async function departmentCourseNumbers(
         department.toLowerCase(),
     );
     const rawDepartmentCourses: RawDepartmentCourse[] = await response.json();
+
+    if (rawDepartmentCourses.length === 0) {
+        throw new EmptyResponseError(response.url);
+    }
 
     return rawDepartmentCourses.map((rawDepartmentCourse) =>
         rawDepartmentCourse.value.toUpperCase(),

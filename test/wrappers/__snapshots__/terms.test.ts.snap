@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`terms request terms 1`] = `
+exports[`terms request terms for valid year 1`] = `
 [
   "fall",
   "spring",

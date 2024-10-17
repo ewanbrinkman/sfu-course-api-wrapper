@@ -10,7 +10,8 @@
             "@api-types": ["../src/api-types"],
             "@api": ["../src/api"],
             "@api/*": ["../src/api/*"],
-            "@config/*": ["../src/config/*"]
+            "@config/*": ["../src/config/*"],
+            "@errors": ["../src/errors"]
         }
     },
     "include": ["./test"]
