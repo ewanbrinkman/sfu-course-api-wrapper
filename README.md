@@ -62,38 +62,7 @@ Also, this package has _zero_ runtime dependencies! The
 
 ## Getting Started
 
-How to set up locally. This package is not currently published to npm.
-
-### Prerequisites
-
--   node
--   npm _(comes with node)_
-
-### Installation
-
-1. Clone this repository.
-    ```sh
-    git clone https://github.com/ewanbrinkman/sfu-course-api-wrapper.git
-    ```
-2. Go to the directory of `sfu-course-api-wrapper`.
-    ```sh
-    cd sfu-course-api-wrapper
-    ```
-3. Install NPM packages.
-    ```sh
-    npm install
-    ```
-4. Build.
-    ```sh
-    npm run build
-    ```
-5. Go to the directory of your own project. Then, install
-   `sfu-course-api-wrapper` in your own project as shown below. The path is the
-   where the `sfu-api-folder` is located, **NOT** the location of the `lib`
-   folder created by `npm run build` in step 4 above.
-    ```sh
-    npm install /path/to/local/sfu-course-api-wrapper/installed/package
-    ```
+Install the package from npm: `npm install course-api-wrapper`
 
 ## Usage
 
