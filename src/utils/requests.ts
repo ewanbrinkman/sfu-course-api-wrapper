@@ -26,32 +26,22 @@ function generateRequestSFUApiFunction(baseUrl: string): requestSFUApiFunction {
                     throw new InvalidResponseError(response.status, url);
                 }
             } catch (error) {
-                // If an error like 404 or whatnot was returned from the SFU
-                // API, that means `fetch` was able to connect and get a
-                // response from the server. This happens if
-                // `InvalidResponseError` is thrown, since that means a response
-                // was received, but `response.ok` is not true. Anyways, if a
-                // response is received, throw an error right away. If
-                // `InvalidResponseError` was not the error thrown, that means
-                // `fetch` threw an error. `fetch` does this for things like
-                // network errors. This can happen if the SFU API is being
-                // spammed and momentarily goes down. So, if some netork-related
-                // error happens, try making the request more times. That way,
-                // there is a chance the request could actually succeed. If
-                // after a maximum never of retry attempts errors are still
-                // received, throw an error to represent failure.
-                if (error instanceof InvalidResponseError) {
-                    throw error;
-                }
-
                 if (i !== apiConfig.requestRetry.maxAttempts - 1) {
-                    console.error(
-                        error,
-                        `SFU API request failed for: '${url}', retrying after ${apiConfig.requestRetry.delay} ms...`,
-                    );
                     await new Promise((resolve) =>
                         setTimeout(resolve, apiConfig.requestRetry.delay),
                     );
+                } else {
+                    // `InvalidResponseError` could either be because the API is
+                    // overwhelmed, or an actual error such as 404. An error
+                    // *actually* from `fetch` will be a network error. Since an
+                    // error like 404 is unclear (whether it is from the API
+                    // being spammed or an actual 404 error), try again. The
+                    // issue with this is that an actual 404 will keep getting
+                    // requested. This is better than returning 404 right away
+                    // when it is just the API being spammed.
+                    if (error instanceof InvalidResponseError) {
+                        throw error;
+                    }
                 }
             }
         }
