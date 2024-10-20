@@ -9,7 +9,7 @@
     ],
     "scripts": {
         "prepare": "ts-patch install -s",
-        "test": "jest",
+        "test": "jest --runInBand",
         "build": "tsc",
         "clean": "rimraf lib",
         "generate-docs": "typedoc src/index.ts --out ./docs",
