@@ -1,6 +1,11 @@
 import { Day } from '@api-types';
 
 function processStringDays(inputDays: string): Day[] {
+    if (inputDays === '') {
+        // This could happen for an online-only course.
+        return [];
+    }
+
     // Days are separated by ', '.
     const splitDays = inputDays.split(', ');
     return splitDays.map((splitDay) => {
