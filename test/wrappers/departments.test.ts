@@ -1,5 +1,4 @@
 import wrappers from '../../src/wrappers';
-import { EmptyResponseError } from '../../src/errors';
 
 describe('departments', () => {
     test('request departments', async () => {
@@ -7,8 +6,8 @@ describe('departments', () => {
         expect(departments).toMatchSnapshot();
     }, 30000);
     test('request departments from an invalid year and term combination', async () => {
-        await expect(wrappers.departments(3, 'fall')).rejects.toThrow(
-            EmptyResponseError,
-        );
+        const departments = await wrappers.departments(3, 'fall');
+
+        expect(departments).toEqual([]);
     }, 30000);
 });
