@@ -1,6 +1,6 @@
 {
     "name": "course-api-wrapper",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "An asynchronous TypeScript wrapper for SFU's course API. This package is not endorsed or supported by SFU.",
     "main": "lib/index.js",
     "types": "lib/types/index.d.ts",

@@ -11,8 +11,8 @@ function processRawSchedulePartData(
         sectionCode: rawSchedulePartData.sectionCode,
         startTime: rawSchedulePartData.startTime,
         isExam: rawSchedulePartData.isExam,
-        endTime: rawSchedulePartData.endDate,
-        startDate: rawSchedulePartData.startTime,
+        endTime: rawSchedulePartData.endTime,
+        startDate: rawSchedulePartData.startDate,
     };
 }
 
